@@ -1,0 +1,20 @@
+This directory contains programs (source & executable)
+which must be built with MS-DOS commercial compilers
+and assemblers because they contain 16 bit code
+and addressing.
+
+The <MMLoader> directory contains the program used
+to load and execute the MMURTL OS from MS-DOS.
+This requires Borland C 3.1 or higher to build.
+
+The <BootCode> directory contains the bootsector
+(source and image) suitable for loading a MMURTL
+image from a disk or diskette (making it bootable).
+It also contains a progam to turn a MMURTL RUN file
+into a directly loadable image for the boot sector code.
+These program require Borland's Turbo assembler
+and Borlands C compiler also (if you want to rebuild them).
+
+The <DumpRun> directory contains a program used to
+analyze a run file. This also requires Borland tools
+to rebuild.

@@ -1,0 +1,13 @@
+This is the DASM Assembler ported to run under MMURTL.
+It has been modified to use MMURTL memory management
+calls directly.
+It produces the same run file as its DOS counterpart.
+You will notice, the like the ported version of CM32,
+it runs slower (about 150%) than the DOS version.
+
+This is for 2 reasons. The CM32 compiler was used to build it.
+CM32 is hardly a "production" compiler.
+Its code generation is no competition for the likes of Borland.
+The second reason is that the processor is being shared with
+several other tasks that wake up and do things (such as
+display the time or tick count in the monitor).

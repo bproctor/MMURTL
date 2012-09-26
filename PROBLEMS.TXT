@@ -1,0 +1,133 @@
+This file relates to version 1.0 of the MMURTL
+computer operating system that accompanies the
+book:
+
+   MMURTL-V1.0
+
+This discusses known problems trying to run MMURTL, as well
+as bugs, and portions of the code that are incomplete
+
+1) LOADING AND RUNNING MMURTL
+
+	If MMURTL will not run on your system, you may have to
+	remove EMM386 from your Autoexec.BAT or Config.sys file.
+	EMM386 doesn't take kindly to hostile memory take-overs.
+
+	If you receive an error during file system initialization or
+	hard disk device driver installation:
+
+    a) Your disk controller may not be supported.
+    MMURTL has some problems with some of the newer 32 bit
+    disk controllers that move data directly between the 
+    drive and memory.
+    All ISA driven controllers seem to work fine (I have
+    tested more than 12 different ISA IDE controllers).
+    I have also tested many PCI based controllers and they
+    seem to work ok too.  I have no problems running MMURTL
+    on my 233 Mhz Pentium MMX with a PCI controller so it
+    can be done!  I have no idea what effect the UDMA
+    33 and 66 PCI controllers will have.
+
+    b) SCSI disks and other SCSI devices are not supported.
+    (no SCSI driver)
+
+    c) Your data may be compressed by MS-DOS or another product
+    such as Stacker. MMURTL does not support disk data compression.
+
+    d) If you are running OS/2 V2.x or Warp (V3.x or V4.x), 
+    MMURTL doesn't recognize the multiboot partition correctly.
+    You can copy the MMSYS directory to a floppy and run it
+    from there to test it.
+
+2) WHAT'S NOT DONE??
+
+	FILESYSTEM:
+
+	a) The file system call to remove a directory is not completed
+	so I didn't include it. Use MS-DOS to get rid of directories if
+	needed.
+
+	DLLs:
+
+	a) DLLs are not supported. AND NEVER WILL BE - I hate them...
+
+	LOADING DEVICE DRIVERS:
+
+	a) Device drivers can't be loaded dynamically. If you need to add
+	a driver you will have to build it into the OS (sounds like Unix...)
+        That's actually	quite easy to do, so I didn't strain myself 
+        getting it done.
+
+	DASM LIBARARY SEARCH FUNCTION
+
+	a) The search function (.SEARCH command) is not fully implimented.
+	The work around is quite easy, and really there is not much
+	library code to search through at this point in time.
+	Simply include the ASM modules in the ATF file. All of the sample
+	programs and the operating system are built this way right now.
+	They should provide you with good examples.
+
+	COMMAND LINE INTERPRETER
+
+	a) There is no wildcard feature in the file system or any
+	template matching code in a library. This means *.* has no
+	effect. The copy, rename, and delete functions all take single
+	filenames.
+
+3)  BUGS
+
+	OPERATING SYSTEM
+
+	a) On occasion, when a program is beating the filesystem to death
+	and you attempt to load and run another CLI, the system crashes.
+	It doesn't even make it into the debugger. It is apparently a
+	processor double fault. Still looking for this one....
+
+	b) The CTRL-ALT-DELETE function is a rather nasty way to shut down
+	an application.	It was a late addition, but was necessary. On
+	occasion is causes some problems. The system still functions and
+	tasks appear to be running fine - but every once in a while when
+	you use it, you can't switch to the other applications. This IS
+	a problem I'm still looking for.
+
+	CM32 C Compiler
+
+	a) Occasionally when you have accidentally "nested" a function
+	(which is not allowed in C) the compiler goes into a loop...
+	It's churning away somehwere. I just haven't found out where
+	that is yet.
+
+4) An updated Filesystem is included for download but not incorporated
+ - you have to do it by replacing the file. I did not want to
+mess with the code so it folloows the book exactly. Otherwise I
+would have create a confusing mess!  
+
+This is STILL version 1.0. You WILL find many other problems.
+Let me know if you get the time. Send E-Mail to rburgess@aol.com.
+(Please, bugs only - and yes, the AOL email address is still mine
+after 6 years.)
+
+Quite obviously, neither myself nor the publisher has time to really
+support a product of this complexity. You're on your own. BUT at least
+you DO have the source code.
+
+Thanks, and I hope you get something out of all this!
+
+Richard Burgess
+Alexandria, VA.
+1995-1999
+
+P.S. Most of this text is 6 years old but still applies.
+HOWEVER, with a publisher like Sensory willing to keep a BBS
+up and running for user exchange and support - maybe MMURTL
+will take off like I wanted it to in the first place...
+I'm not sure how much time I'll have to help, but it is tempting
+and MMURTL really is a sweet OS.  I've never run it on a PII
+or PIII - let's hear it out there.... whoa... who's got the guts?
+But it does run on my IBM Aptiva 233Mhz MMX... Hmmm. 
+Not bad for 5 years later. It does cough on the bigger disk
+quite often though.  
+
+
+
+

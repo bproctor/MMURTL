@@ -1,0 +1,54 @@
+MMURTL-V1.0 (the Book, either in PDF or Printed format) 
+remains Copyright 1999, Sensory Publishing, Inc.
+ALL RIGHTS RESERVED
+
+HOWEVER:
+
+MMURTL Operating System Source Code and utilities, along with the DASM assembler
+are now in the PUBLIC DOMAIN per its author and legal owner, Richard A. Burgess.
+
+The original copyright used to read:
+If you purchased my book, you may use this source code
+in any project (commercial or private) as long as you
+give MMURTL the credit and notify me by email
+at..  Blah Blah Blah...
+
+This has now been changed to:
+
+All of the Source Code for:
+  MMURTL V1.0 the Operating System,
+  the DASM assembler, and
+  Any of the small MMURTL utilities
+have beenpalced IN THE PUBLIC DOMAIN.
+Use it any way you see fit, for any purpose you desire, for
+anyting you like. Distribute it, sell it, give it away, 
+sleep on it, build a son of MMURTL, do whatever you want
+with it! That's what PUBLIC DOMAIN MEANS! It is YOURS!
+
+This includes the files for the above mentioned software 
+that came from the original CD-ROM distributions that any of 
+you purchased, whether from SAMS/MacMillan Publishing, or
+from Sensory Publishing, Inc., and this Source Code Package 
+that is on the Sensory Publishing, Inc, web site.
+
+However, I ask that you please respect the copyright for the book itself
+until its status changes. It is still coyprighted material under a 
+previous agreement.
+
+ONE MORE THING: The only software in the original distributions 
+that I did not (and still do not) have complete control over is
+the CM-32 compiler and it's source code by Dave Dunfield. 
+I have included here for you to use personally, but you may 
+not sell, distribute or charge for 
+CM-32 without Mr. Dunfield's express persmission. 
+CM32 was derived from Micro-C (Copyright 1990) 
+by Dave Dunfield. Any commercial use of this product absolutely 
+requires Mr. Dunfield's permission.
+
+ENJOY,
+  Richard A. Burgess
+  New SMyrna Beach, Florida 
+  USA 
+  December 10th, 2003
+
+------------------------------------------------

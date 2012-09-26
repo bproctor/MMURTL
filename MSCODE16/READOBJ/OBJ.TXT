@@ -1,0 +1,1122 @@
+
+THEADR   00000000, size: 000A
+09 72 65 61 64 6F 62 6A 2E 63                     .readobj.c       
+
+COMENT   0000000E, size: 0017
+00 00 14 54 43 38 36 20 42 6F 72 6C 61 6E 64 20   ...TC86 Borland  
+43 2B 2B 20 33 2E 31                              C++ 3.1          
+
+COMENT   00000029, size: 0004
+00 F9 03 00                                       ....             
+
+COMENT   00000031, size: 0010
+00 E9 AF 4C 2A 1E 09 72 65 61 64 6F 62 6A 2E 63   ...L*..readobj.c 
+
+COMENT   00000045, size: 0022
+00 E9 40 19 CA 18 1B 43 3A 5C 42 4F 52 4C 41 4E   ..@....C:\BORLAN 
+44 43 5C 49 4E 43 4C 55 44 45 5C 63 74 79 70 65   DC\INCLUDE\ctype 
+2E 68                                             .h               
+
+COMENT   0000006B, size: 0022
+00 E9 40 19 CA 18 1B 43 3A 5C 42 4F 52 4C 41 4E   ..@....C:\BORLAN 
+44 43 5C 49 4E 43 4C 55 44 45 5C 5F 64 65 66 73   DC\INCLUDE\_defs 
+2E 68                                             .h               
+
+COMENT   00000091, size: 0022
+00 E9 40 19 CA 18 1B 43 3A 5C 42 4F 52 4C 41 4E   ..@....C:\BORLAN 
+44 43 5C 49 4E 43 4C 55 44 45 5C 73 74 64 69 6F   DC\INCLUDE\stdio 
+2E 68                                             .h               
+
+COMENT   000000B7, size: 0023
+00 E9 40 19 CA 18 1C 43 3A 5C 42 4F 52 4C 41 4E   ..@....C:\BORLAN 
+44 43 5C 49 4E 43 4C 55 44 45 5C 5F 6E 66 69 6C   DC\INCLUDE\_nfil 
+65 2E 68                                          e.h              
+
+COMENT   000000DE, size: 0022
+00 E9 40 19 CA 18 1B 43 3A 5C 42 4F 52 4C 41 4E   ..@....C:\BORLAN 
+44 43 5C 49 4E 43 4C 55 44 45 5C 5F 6E 75 6C 6C   DC\INCLUDE\_null 
+2E 68                                             .h               
+
+COMENT   00000104, size: 0023
+00 E9 40 19 CA 18 1C 43 3A 5C 42 4F 52 4C 41 4E   ..@....C:\BORLAN 
+44 43 5C 49 4E 43 4C 55 44 45 5C 73 74 72 69 6E   DC\INCLUDE\strin 
+67 2E 68                                          g.h              
+
+COMENT   0000012B, size: 0023
+00 E9 40 19 CA 18 1C 43 3A 5C 42 4F 52 4C 41 4E   ..@....C:\BORLAN 
+44 43 5C 49 4E 43 4C 55 44 45 5C 73 74 64 6C 69   DC\INCLUDE\stdli 
+62 2E 68                                          b.h              
+
+COMENT   00000152, size: 0006
+00 FA 00 00 00 00                                 ......           
+
+COMENT   0000015C, size: 0002
+00 E9                                             ..               
+
+COMENT   00000162, size: 0004
+00 EA 01 0C                                       ....             
+
+LNAMES   0000016A, size: 002E
+00 0C 52 45 41 44 4F 42 4A 5F 54 45 58 54 04 43   ..READOBJ_TEXT.C 
+4F 44 45 05 5F 44 41 54 41 04 44 41 54 41 04 5F   ODE._DATA.DATA._ 
+42 53 53 03 42 53 53 06 44 47 52 4F 55 50         BSS.BSS.DGROUP   
+
+SEGDEF   0000019C, size: 0006
+28 AE 12 02 03 01                                 (.....           
+
+SEGDEF   000001A6, size: 0006
+48 2F 03 04 05 01                                 H/....           
+
+SEGDEF   000001B0, size: 0006
+48 0A 00 06 07 01                                 H.....           
+
+GRPDEF   000001BA, size: 0005
+08 FF 02 FF 03                                    .....            
+
+EXTDEF   000001C3, size: 0065
+0B 5F 5F 73 65 74 61 72 67 76 5F 5F 00 08 46 5F   .__setargv__..F_ 
+4C 58 52 53 48 40 00 09 46 5F 4C 58 55 52 53 48   LXRSH@..F_LXURSH 
+40 00 05 5F 65 78 69 74 00 07 5F 70 72 69 6E 74   @.._exit.._print 
+66 00 06 5F 66 73 65 65 6B 00 06 5F 66 70 75 74   f.._fseek.._fput 
+73 00 06 5F 66 70 75 74 63 00 06 5F 66 6F 70 65   s.._fputc.._fope 
+6E 00 06 5F 66 67 65 74 63 00 09 5F 5F 73 74 72   n.._fgetc..__str 
+65 61 6D 73 00                                    eams.            
+
+PUBDEF   0000022C, size: 000B
+00 01 05 5F 6D 61 69 6E 54 0A 00                  ..._mainT..      
+
+PUBDEF   0000023B, size: 0012
+00 01 0C 5F 66 61 74 61 6C 5F 65 72 72 6F 72 20   ..._fatal_error  
+0A 00                                             ..               
+
+PUBDEF   00000251, size: 0011
+00 01 0B 5F 77 72 69 74 65 5F 6C 69 6E 65 F0 09   ..._write_line.. 
+00                                                .                
+
+PUBDEF   00000266, size: 000D
+00 01 07 5F 46 49 58 55 50 50 59 09 00            ..._FIXUPPY..    
+
+PUBDEF   00000277, size: 0012
+00 01 0C 5F 46 69 78 75 70 52 65 63 6F 72 64 28   ..._FixupRecord( 
+05 00                                             ..               
+
+PUBDEF   0000028D, size: 0013
+00 01 0D 5F 54 68 72 65 61 64 52 65 63 6F 72 64   ..._ThreadRecord 
+A9 04 00                                          ...              
+
+PUBDEF   000002A4, size: 0010
+00 01 0A 5F 52 65 61 64 49 6E 64 65 78 05 04 00   ..._ReadIndex... 
+
+PUBDEF   000002B8, size: 0013
+00 01 0D 5F 55 6E 6B 6E 6F 77 6E 52 54 79 70 65   ..._UnknownRType 
+8F 03 00                                          ...              
+
+PUBDEF   000002CF, size: 0011
+00 01 0B 5F 44 75 6D 70 52 65 63 6F 72 64 0D 03   ..._DumpRecord.. 
+00                                                .                
+
+PUBDEF   000002E4, size: 0013
+00 01 0D 5F 52 65 61 64 42 73 52 65 63 6F 72 64   ..._ReadBsRecord 
+BF 02 00                                          ...              
+
+PUBDEF   000002FB, size: 000B
+00 01 05 5F 44 75 6D 70 0A 02 00                  ..._Dump...      
+
+PUBDEF   0000030A, size: 0013
+00 01 0D 5F 57 72 69 74 65 52 65 63 49 6E 66 6F   ..._WriteRecInfo 
+21 01 00                                          !..              
+
+PUBDEF   00000321, size: 0014
+00 01 0E 5F 52 65 61 64 52 65 63 6F 72 64 4C 65   ..._ReadRecordLe 
+6E C2 00 00                                       n...             
+
+PUBDEF   00000339, size: 000C
+00 01 06 5F 43 6F 70 79 6E 9F 00 00               ..._Copyn...     
+
+PUBDEF   00000349, size: 0010
+00 01 0A 5F 45 6E 63 6F 64 65 48 65 78 56 00 00   ..._EncodeHexV.. 
+
+PUBDEF   0000035D, size: 000D
+00 01 07 5F 45 6E 63 6F 64 65 00 00 00            ..._Encode...    
+
+PUBDEF   0000036E, size: 000D
+01 03 07 5F 72 65 63 6C 65 6E 00 00 00            ..._reclen...    
+
+PUBDEF   0000037F, size: 000A
+01 03 04 5F 6C 66 61 02 00 00                     ..._lfa...       
+
+PUBDEF   0000038D, size: 000A
+01 03 04 5F 65 72 63 06 00 00                     ..._erc...       
+
+PUBDEF   0000039B, size: 000C
+01 03 06 5F 52 54 79 70 65 08 00 00               ..._RType...     
+
+PUBDEF   000003AB, size: 0010
+01 02 0A 5F 6F 75 74 70 75 74 5F 66 70 04 00 00   ..._output_fp... 
+
+PUBDEF   000003BF, size: 000F
+01 02 09 5F 69 6E 70 75 74 5F 66 70 00 00 00      ..._input_fp...  
+
+LEDATA   000003D2, size: 0403
+01 00 00 55 8B EC 56 8B 4E 0A C4 5E 06 26 C6 07   ...U..V.N..^.&.. 
+20 C4 5E 06 26 C6 47 01 20 C4 5E 06 26 C6 47 02    .^.&.G. .^.&.G. 
+20 C4 5E 06 26 C6 47 03 20 C4 5E 06 26 C6 47 04    .^.&.G. .^.&.G. 
+20 BE 04 00 8B C1 BB 0A 00 99 F7 FB 80 C2 30 C4    .............0. 
+5E 06 03 DE 26 88 17 BB 0A 00 8B C1 99 F7 FB 8B   ^...&........... 
+C8 4E 0B C9 75 DE 5E 5D CB 55 8B EC 83 EC 02 B9   .N..u.^].U...... 
+01 00 EB 36 8A 46 0A 24 0F 88 46 FF 80 7E FF 0A   ...6.F.$..F..~.. 
+73 0C C4 5E 06 03 D9 8A 46 FF 04 30 EB 0A C4 5E   s..^....F..0...^ 
+06 03 D9 8A 46 FF 04 37 26 88 07 8A 46 0A B4 00   ....F..7&...F... 
+BB 10 00 99 F7 FB 88 46 0A 49 0B C9 7D C6 8B E5   .......F.I..}... 
+5D CB 55 8B EC 8B 56 0E EB 12 C4 5E 0A 26 8A 07   ].U...V....^.&.. 
+C4 5E 06 26 88 07 FF 46 0A FF 46 06 8B C2 4A 0B   .^.&...F..F...J. 
+C0 75 E7 5D CB 55 8B EC 83 EC 04 56 FF 36 02 00   .u.].U.....V.6.. 
+FF 36 00 00 9A 00 00 00 00 59 59 89 46 FE FF 36   .6.......YY.F..6 
+02 00 FF 36 00 00 9A 00 00 00 00 59 59 89 46 FC   ...6.......YY.F. 
+8B 46 FC B1 08 D3 E0 03 46 FE 8B F0 8B C6 99 8B   .F......F....... 
+1E 04 00 8B 0E 02 00 03 C8 13 DA 83 C1 03 83 D3   ................ 
+00 89 1E 04 00 89 0E 02 00 C4 5E 06 26 89 37 5E   ..........^.&.7^ 
+8B E5 5D CB 55 8B EC 83 EC 0C 8B 16 04 00 A1 02   ..].U........... 
+00 B1 18 9A 00 00 00 00 24 FF 50 16 8D 46 F6 50   ........$.P..F.P 
+0E E8 15 FF 83 C4 06 A1 04 00 24 FF 50 16 8D 46   ..........$.P..F 
+F8 50 0E E8 03 FF 83 C4 06 8B 16 04 00 A1 02 00   .P.............. 
+B1 08 9A 00 00 00 00 24 FF 50 16 8D 46 FA 50 0E   .......$.P..F.P. 
+E8 E6 FE 83 C4 06 A0 02 00 24 FF 50 16 8D 46 FC   .........$.P..F. 
+50 0E E8 D4 FE 83 C4 06 C6 46 FE 00 FF 36 06 00   P........F...6.. 
+FF 36 04 00 16 8D 46 F6 50 9A 00 00 00 00 83 C4   .6....F.P....... 
+08 1E B8 00 00 50 0E E8 1B FF 59 59 FF 36 06 00   .....P....YY.6.. 
+FF 36 04 00 1E B8 08 00 50 9A 00 00 00 00 83 C4   .6......P....... 
+08 A1 00 00 48 89 46 F4 8B 46 F4 B1 08 D3 E8 24   ....H.F..F.....$ 
+FF 50 16 8D 46 F6 50 0E E8 7E FE 83 C4 06 8A 46   .P..F.P..~.....F 
+F4 24 FF 50 16 8D 46 F8 50 0E E8 6C FE 83 C4 06   .$.P..F.P..l.... 
+C6 46 FA 00 FF 36 06 00 FF 36 04 00 16 8D 46 F6   .F...6...6....F. 
+50 9A 00 00 00 00 83 C4 08 8B E5 5D CB 55 8B EC   P..........].U.. 
+83 EC 4A 56 57 8B 7E 0A 33 F6 EB 05 C6 42 B6 20   ..JVW.~.3....B.  
+46 83 FE 45 7C F6 E9 8C 00 83 FF 10 7C 0A C7 46   F..E|.......|..F 
+FC 0F 00 83 EF 10 EB 08 8B C7 48 89 46 FC 33 FF   ..........H.F.3. 
+8B 46 FC 40 50 FF 76 08 FF 76 06 16 8D 46 E8 50   .F.@P.v..v...F.P 
+0E E8 4E FE 83 C4 0A 83 46 06 10 33 F6 EB 30 8A   ..N.....F..3..0. 
+42 E8 88 46 FF 8A 46 FF 50 8B C6 BA 03 00 F7 EA   B..F..F.P....... 
+8D 56 B6 03 C2 16 50 0E E8 DE FD 83 C4 06 80 7E   .V....P........~ 
+FF 20 7C 06 80 7E FF 7E 7E 04 C6 42 E8 2E 46 3B   . |..~.~~..B..F; 
+76 FC 7E CB C6 46 F9 0D C6 46 FA 0A C6 46 FB 00   v.~..F...F...F.. 
+FF 36 06 00 FF 36 04 00 16 8D 46 B6 50 9A 00 00   .6...6....F.P... 
+00 00 83 C4 08 0B FF 74 03 E9 6D FF 5F 5E 8B E5   .......t..m._^.. 
+5D CB 55 8B EC 83 EC 04 56 8B 76 0A EB 36 FF 36   ].U.....V.v..6.6 
+02 00 FF 36 00 00 9A 00 00 00 00 59 59 89 46 FE   ...6.......YY.F. 
+83 7E FE FF 75 0A B8 01 00 50 9A 00 00 00 00 59   .~..u....P.....Y 
+8A 46 FE 24 FF 88 46 FD C4 5E 06 8A 46 FD 26 88   .F.$..F..^..F.&. 
+07 FF 46 06 8B C6 4E 0B C0 75 C3 5E 8B E5 5D CB   ..F...N..u.^..]. 
+55 8B EC 83 EC 10 56 57 8B 36 00 00 4E EB 2B 83   U.....VW.6..N.+. 
+FE 10 7E 08 BF 10 00 83 EE 10 EB 04 8B FE 33 F6   ..~...........3. 
+57 16 8D 46 F0 50 0E E8 88 FF 83 C4 06 57 16 8D   W..F.P.......W.. 
+46 F0 50 0E E8 C6 FE 83 C4 06 0B F6 75 D1 FF 36   F.P.........u..6 
+06 00 FF 36 04 00 1E B8 11 00 50 9A 00 00 00 00   ...6......P..... 
+83 C4 08 33 C0 50 FF 36 04 00 FF 36 02 00 FF 36   ...3.P.6...6...6 
+02 00 FF 36 00 00 9A 00 00 00 00 83 C4 0A 0B C0   ...6............ 
+74 0A B8 01 00 50 9A 00 00 00 00 59 5F 5E 8B E5   t....P.....Y_^.. 
+5D CB 55 8B EC 83 EC 04 8A 46 06 50 16 8D 46 FC   ].U......F.P..F. 
+50 0E E8 B4 FC 83 C4 06 C6 46 FE 00 FF 36 06 00   P........F...6.. 
+FF 36 04 00 1E B8 14 00 50 9A 00 00 00 00 83 C4   .6......P....... 
+08 FF 36 06 00 FF 36 04 00 16 8D 46 FC 50 9A 00   ..6...6....F.P.. 
+00 00 00 83 C4 08 FF 36 06 00 FF 36 04 00 1E B8   .......6...6.... 
+29 00 50 9A 00 00 00 00 83 C4 08 0E E8 35 FD FF   ).P..........5.. 
+36 06 00 FF 36 04 00 1E B8 32 00 50 9A 00 00 00   6...6....2.P.... 
+00 83 C4                                          ...              
+
+FIXUPP   000007D9, size: 012A
+Segment relative pointer 03FA , F5 , T6 0007
+Segment relative offset  03F6 , F1 0001 , T4 0002
+Segment relative offset  03F2 , F1 0001 , T4 0002
+Segment relative offset  03EE , F1 0001 , T4 0002
+Segment relative pointer 03E1 , F5 , T6 0007
+Segment relative offset  03DD , F1 0001 , T4 0002
+Segment relative offset  03D9 , F1 0001 , T4 0002
+Segment relative offset  03D5 , F1 0001 , T4 0002
+Segment relative pointer 03CC , F5 , T6 0007
+Segment relative offset  03C4 , F1 0001 , T4 0002
+Segment relative offset  03C0 , F1 0001 , T4 0002
+Segment relative pointer 03B7 , F5 , T6 0007
+Segment relative offset  03B3 , F1 0001 , T4 0002
+Segment relative offset  03AF , F1 0001 , T4 0002
+Segment relative offset  03AB , F1 0001 , T4 0002
+Segment relative pointer 0384 , F5 , T6 0004
+Segment relative pointer 0374 , F5 , T6 0006
+Segment relative offset  0371 , F1 0001 , T4 0002
+Segment relative offset  036D , F1 0001 , T4 0002
+Segment relative offset  0369 , F1 0001 , T4 0003
+Segment relative offset  0365 , F1 0001 , T4 0003
+Segment relative pointer 0359 , F5 , T6 0007
+Segment relative offset  0355 , F1 0001 , T4 0002
+Segment relative offset  0351 , F1 0001 , T4 0002
+Segment relative offset  034D , F1 0001 , T4 0002
+Segment relative offset  0317 , F1 0001 , T4 0003
+Segment relative pointer 02E8 , F5 , T6 0004
+Segment relative pointer 02D4 , F5 , T6 000A
+Segment relative offset  02D1 , F1 0001 , T4 0002
+Segment relative offset  02CD , F1 0001 , T4 0002
+Segment relative pointer 02AB , F5 , T6 0007
+Segment relative offset  02A3 , F1 0001 , T4 0002
+Segment relative offset  029F , F1 0001 , T4 0002
+Segment relative pointer 01FF , F5 , T6 0007
+Segment relative offset  01F7 , F1 0001 , T4 0002
+Segment relative offset  01F3 , F1 0001 , T4 0002
+Segment relative offset  01BF , F1 0001 , T4 0003
+Segment relative pointer 01B7 , F5 , T6 0007
+Segment relative offset  01B3 , F1 0001 , T4 0002
+Segment relative offset  01AF , F1 0001 , T4 0002
+Segment relative offset  01AB , F1 0001 , T4 0002
+Segment relative offset  01A0 , F1 0001 , T4 0003
+Segment relative pointer 0197 , F5 , T6 0007
+Segment relative offset  018F , F1 0001 , T4 0002
+Segment relative offset  018B , F1 0001 , T4 0002
+Segment relative offset  0174 , F1 0001 , T4 0003
+Segment relative pointer 0160 , F5 , T6 0003
+Segment relative offset  015B , F1 0001 , T4 0003
+Segment relative offset  0158 , F1 0001 , T4 0003
+Segment relative offset  0145 , F1 0001 , T4 0003
+Segment relative pointer 0131 , F5 , T6 0003
+Segment relative offset  012C , F1 0001 , T4 0003
+Segment relative offset  0129 , F1 0001 , T4 0003
+Segment relative offset  0114 , F1 0001 , T4 0003
+Segment relative offset  0110 , F1 0001 , T4 0003
+Segment relative offset  0102 , F1 0001 , T4 0003
+Segment relative offset  00FE , F1 0001 , T4 0003
+Segment relative pointer 00E4 , F5 , T6 000A
+Segment relative offset  00E1 , F1 0001 , T4 0002
+Segment relative offset  00DD , F1 0001 , T4 0002
+Segment relative pointer 00D2 , F5 , T6 000A
+Segment relative offset  00CF , F1 0001 , T4 0002
+Segment relative offset  00CB , F1 0001 , T4 0002
+
+LEDATA   00000907, size: 0403
+01 00 04 08 8B E5 5D CB 55 8B EC 83 EC 04 FF 36   ......].U......6 
+02 00 FF 36 00 00 9A 00 00 00 00 59 59 89 46 FC   ...6.......YY.F. 
+83 7E FC FF 75 0A B8 01 00 50 9A 00 00 00 00 59   .~..u....P.....Y 
+8A 46 FC 24 FF 88 46 FF C4 5E 0A 26 FF 0F 8A 46   .F.$..F..^.&...F 
+FF B4 00 A9 80 00 75 0D 8A 46 FF B4 00 C4 5E 06   ......u..F....^. 
+26 89 07 EB 53 8A 46 FF B4 00 25 7F 00 89 46 FC   &...S.F...%...F. 
+8B 46 FC B1 08 D3 E0 C4 5E 06 26 89 07 FF 36 02   .F......^.&...6. 
+00 FF 36 00 00 9A 00 00 00 00 59 59 89 46 FC 83   ..6.......YY.F.. 
+7E FC FF 75 0A B8 01 00 50 9A 00 00 00 00 59 8A   ~..u....P.....Y. 
+46 FC 24 FF 88 46 FF C4 5E 0A 26 FF 0F 8A 46 FF   F.$..F..^.&...F. 
+B4 00 C4 5E 06 26 01 07 8B E5 5D CB 55 8B EC 83   ...^.&....].U... 
+EC 1C 8A 46 06 24 03 88 46 F5 F6 46 06 40 74 08   ...F.$..F..F.@t. 
+8A 46 F5 04 04 88 46 F5 8A 46 06 B4 00 BB 04 00   .F....F..F...... 
+99 F7 FB 25 07 00 89 46 F6 8A 46 F5 B4 00 8D 56   ...%...F..F....V 
+F8 03 C2 8A 56 F6 8B D8 36 88 17 80 7E F5 04 76   ....V...6...~..v 
+06 83 7E F6 04 73 1D FF 76 0A FF 76 08 8A 46 F5   ..~..s..v..v..F. 
+B4 00 D1 E0 8D 56 E4 03 C2 16 50 0E E8 F9 FE 83   .....V....P..... 
+C4 08 EB 13 8A 46 F5 B4 00 D1 E0 8D 56 E4 03 C2   .....F......V... 
+8B D8 36 C7 07 00 00 8B E5 5D CB 55 8B EC 83 EC   ..6......].U.... 
+28 8A 46 06 B4 00 A9 40 00 75 0E FF 36 06 00 FF   (.F....@.u..6... 
+36 04 00 1E B8 35 00 EB 0C FF 36 06 00 FF 36 04   6....5....6...6. 
+00 1E B8 44 00 50 9A 00 00 00 00 83 C4 08 8A 46   ...D.P.........F 
+06 B4 00 BB 04 00 99 F7 FB 25 07 00 8B D8 83 FB   .........%...... 
+04 77 56 D1 E3 2E FF A7 4F 09 FF 36 06 00 FF 36   .wV.....O..6...6 
+04 00 1E B8 56 00 50 9A 00 00 00 00 83 C4 08 EB   ....V.P......... 
+38 FF 36 06 00 FF 36 04 00 1E B8 5F 00 EB E7 FF   8.6...6...._.... 
+36 06 00 FF 36 04 00 1E B8 68 00 EB D9 FF 36 06   6...6....h....6. 
+00 FF 36 04 00 1E B8 71 00 EB CB FF 36 06 00 FF   ..6....q....6... 
+36 04 00 1E B8 7A 00 EB BD FF 36 02 00 FF 36 00   6....z....6...6. 
+00 9A 00 00 00 00 59 59 88 46 F7 C4 5E 08 26 FF   ......YY.F..^.&. 
+0F 8A 46 06 24 03 50 16 8D 46 F4 50 0E E8 69 FA   ..F.$.P..F.P..i. 
+83 C4 06 C6 46 F6 00 FF 36 06 00 FF 36 04 00 16   ....F...6...6... 
+8D 46 F4 50 9A 00 00 00 00 83 C4 08 8A 46 F7 50   .F.P.........F.P 
+16 8D 46 F4 50 0E E8 40 FA 83 C4 06 FF 36 06 00   ..F.P..@.....6.. 
+FF 36 04 00 16 8D 46 F4 50 9A 00 00 00 00 83 C4   .6....F.P....... 
+08 FF 36 02 00 FF 36 00 00 9A 00 00 00 00 59 59   ..6...6.......YY 
+88 46 F3 C4 5E 08 26 FF 0F 8A 46 F3 B4 00 A9 80   .F..^.&...F..... 
+00 75 31 8A 46 F3 B4 00 BB 10 00 99 F7 FB 24 07   .u1.F.........$. 
+88 46 F2 80 7E F2 04 73 14 FF 76 0A FF 76 08 16   .F..~..s..v..v.. 
+8D 46 F0 50 0E E8 90 FD 83 C4 08 EB 05 C7 46 F0   .F.P..........F. 
+00 00 EB 38 8A 46 F3 B4 00 BB 10 00 99 F7 FB 25   ...8.F.........% 
+03 00 8D 56 FC 03 C2 8B D8 36 8A 07 88 46 F2 8A   ...V.....6...F.. 
+46 F3 B4 00 BB 10 00 99 F7 FB 25 03 00 D1 E0 8D   F.........%..... 
+56 E0 03 C2 8B D8 36 8B 07 89 46 F0 8A 46 F3 B4   V.....6...F..F.. 
+00 A9 08 00 75 1C 8A 46 F3 24 07 88 46 EF FF 76   ....u..F.$..F..v 
+0A FF 76 08 16 8D 46 EC 50 0E E8 2B FD 83 C4 08   ..v...F.P..+.... 
+EB 34 8A 46 F3 B4 00 25 03 00 8D 56 F8 03 C2 8B   .4.F...%...V.... 
+D8 36 8A 07 8A 56 F3 80 E2 04 0A C2 88 46 EF 8A   .6...V.......F.. 
+46 F3 B4 00 25 03 00 D1 E0 8D 56 D8 03 C2 8B D8   F...%.....V..... 
+36 8B 07 89 46 EC FF 36 06 00 FF 36 04 00 1E B8   6...F..6...6.... 
+83 00 50 9A 00 00 00 00 83 C4 08 FF 36 06 00 FF   ..P.........6... 
+36 04 00 8A 46 F2 B4 00 05 30 00 50 9A 00 00 00   6...F....0.P.... 
+00 83 C4 06 83 7E F0 00 74 6C FF 36 06 00 FF 36   .....~..tl.6...6 
+04 00 B8 20 00 50 9A 00 00 00 00 83 C4 06 8B 46   ... .P.........F 
+F0 B1 08 D3 E8 50 16 8D 46 F4 50 0E E8 EA F8 83   .....P..F.P..... 
+C4 06 C6 46 F6 00 FF 36 06 00 FF 36 04 00 16 8D   ...F...6...6.... 
+46 F4 50 9A 00 00 00 00 83 C4 08 8A 46 F0 24 FF   F.P.........F.$. 
+50 16 8D 46 F4 50 0E E8 BF F8 83 C4 06 C6 46 F6   P..F.P........F. 
+00 FF 36 06 00 FF 36 04 00 16 8D 46 F4 50 9A 00   ..6...6....F.P.. 
+00 00 00 83 C4 08 FF 36 06 00 FF 36 04 00 1E B8   .......6...6.... 
+88 00 50 9A 00 00 00 00 83 C4 08 FF 36 06 00 FF   ..P.........6... 
+36 04 00 8A 46 EF B4 00 05 30 00 50 9A 00 00 00   6...F....0.P.... 
+00 83 C4 06 FF 36 06 00 FF 36 04 00 B8 20 00 50   .....6...6... .P 
+9A 00 00 00 00 83 C4 06 8B 46 EC B1 08 D3 E8 50   .........F.....P 
+16 8D 46                                          ..F              
+
+FIXUPP   00000D0E, size: 014B
+Segment relative pointer 03EE , F5 , T6 0008
+Segment relative offset  03E7 , F1 0001 , T4 0002
+Segment relative offset  03E3 , F1 0001 , T4 0002
+Segment relative pointer 03DA , F5 , T6 0008
+Segment relative offset  03CE , F1 0001 , T4 0002
+Segment relative offset  03CA , F1 0001 , T4 0002
+Segment relative pointer 03C1 , F5 , T6 0007
+Segment relative offset  03BD , F1 0001 , T4 0002
+Segment relative offset  03B9 , F1 0001 , T4 0002
+Segment relative offset  03B5 , F1 0001 , T4 0002
+Segment relative pointer 03AC , F5 , T6 0007
+Segment relative offset  03A4 , F1 0001 , T4 0002
+Segment relative offset  03A0 , F1 0001 , T4 0002
+Segment relative pointer 0381 , F5 , T6 0007
+Segment relative offset  0379 , F1 0001 , T4 0002
+Segment relative offset  0375 , F1 0001 , T4 0002
+Segment relative pointer 0354 , F5 , T6 0008
+Segment relative offset  034D , F1 0001 , T4 0002
+Segment relative offset  0349 , F1 0001 , T4 0002
+Segment relative pointer 033A , F5 , T6 0008
+Segment relative offset  032E , F1 0001 , T4 0002
+Segment relative offset  032A , F1 0001 , T4 0002
+Segment relative pointer 0321 , F5 , T6 0007
+Segment relative offset  031D , F1 0001 , T4 0002
+Segment relative offset  0319 , F1 0001 , T4 0002
+Segment relative offset  0315 , F1 0001 , T4 0002
+Segment relative pointer 0237 , F5 , T6 000A
+Segment relative offset  0234 , F1 0001 , T4 0002
+Segment relative offset  0230 , F1 0001 , T4 0002
+Segment relative pointer 0227 , F5 , T6 0007
+Segment relative offset  021F , F1 0001 , T4 0002
+Segment relative offset  021B , F1 0001 , T4 0002
+Segment relative pointer 0202 , F5 , T6 0007
+Segment relative offset  01FA , F1 0001 , T4 0002
+Segment relative offset  01F6 , F1 0001 , T4 0002
+Segment relative pointer 01CF , F5 , T6 000A
+Segment relative offset  01CC , F1 0001 , T4 0002
+Segment relative offset  01C8 , F1 0001 , T4 0002
+Segment relative offset  01C2 , F1 0001 , T4 0002
+Segment relative offset  01BE , F1 0001 , T4 0002
+Segment relative offset  01BA , F1 0001 , T4 0002
+Segment relative offset  01B4 , F1 0001 , T4 0002
+Segment relative offset  01B0 , F1 0001 , T4 0002
+Segment relative offset  01AC , F1 0001 , T4 0002
+Segment relative offset  01A6 , F1 0001 , T4 0002
+Segment relative offset  01A2 , F1 0001 , T4 0002
+Segment relative offset  019E , F1 0001 , T4 0002
+Segment relative offset  0198 , F1 0001 , T4 0002
+Segment relative offset  0194 , F1 0001 , T4 0002
+Segment relative offset  0190 , F1 0001 , T4 0002
+Segment relative pointer 0185 , F5 , T6 0007
+Segment relative offset  0181 , F1 0001 , T4 0002
+Segment relative offset  017D , F1 0001 , T4 0002
+Segment relative offset  0179 , F1 0001 , T4 0002
+Segment relative offset  0175 , F5 , T4 0001
+Segment relative pointer 0154 , F5 , T6 0007
+Segment relative offset  0150 , F1 0001 , T4 0002
+Segment relative offset  014C , F1 0001 , T4 0002
+Segment relative offset  0148 , F1 0001 , T4 0002
+Segment relative offset  0142 , F1 0001 , T4 0002
+Segment relative offset  013E , F1 0001 , T4 0002
+Segment relative offset  013A , F1 0001 , T4 0002
+Segment relative pointer 0087 , F5 , T6 0004
+Segment relative pointer 0073 , F5 , T6 000A
+Segment relative offset  0070 , F1 0001 , T4 0002
+Segment relative offset  006C , F1 0001 , T4 0002
+Segment relative pointer 0028 , F5 , T6 0004
+Segment relative pointer 0014 , F5 , T6 000A
+Segment relative offset  0011 , F1 0001 , T4 0002
+Segment relative offset  000D , F1 0001 , T4 0002
+
+LEDATA   00000E5D, size: 03FE
+01 00 08 F4 50 0E E8 50 F8 83 C4 06 C6 46 F6 00   ....P..P.....F.. 
+FF 36 06 00 FF 36 04 00 16 8D 46 F4 50 9A 00 00   .6...6....F.P... 
+00 00 83 C4 08 8A 46 EC 24 FF 50 16 8D 46 F4 50   ......F.$.P..F.P 
+0E E8 25 F8 83 C4 06 C6 46 F6 00 FF 36 06 00 FF   ..%.....F...6... 
+36 04 00 16 8D 46 F4 50 9A 00 00 00 00 83 C4 08   6....F.P........ 
+8A 46 F3 B4 00 A9 04 00 74 03 E9 DC 00 C7 46 EA   .F......t.....F. 
+00 00 C7 46 E8 00 00 FF 36 06 00 FF 36 04 00 B8   ...F....6...6... 
+20 00 50 9A 00 00 00 00 83 C4 06 8A 46 06 B4 00    .P.........F... 
+A9 02 00 75 19 B8 02 00 50 16 8D 46 E8 50 0E E8   ...u....P..F.P.. 
+30 FA 83 C4 06 C4 5E 08 26 83 2F 02 EB 43 B8 03   0.....^.&./..C.. 
+00 50 16 8D 46 E8 50 0E E8 17 FA 83 C4 06 C4 5E   .P..F.P........^ 
+08 26 83 2F 03 C6 46 F6 00 8B 46 EA 99 24 FF 50   .&./..F...F..$.P 
+16 8D 46 F4 50 0E E8 90 F7 83 C4 06 FF 36 06 00   ..F.P........6.. 
+FF 36 04 00 16 8D 46 F4 50 9A 00 00 00 00 83 C4   .6....F.P....... 
+08 8B 56 EA 8B 46 E8 B1 08 9A 00 00 00 00 24 FF   ..V..F........$. 
+50 16 8D 46 F4 50 0E E8 5F F7 83 C4 06 FF 36 06   P..F.P.._.....6. 
+00 FF 36 04 00 16 8D 46 F4 50 9A 00 00 00 00 83   ..6....F.P...... 
+C4 08 8A 46 E8 24 FF 50 16 8D 46 F4 50 0E E8 38   ...F.$.P..F.P..8 
+F7 83 C4 06 FF 36 06 00 FF 36 04 00 16 8D 46 F4   .....6...6....F. 
+50 9A 00 00 00 00 83 C4 08 FF 36 06 00 FF 36 04   P.........6...6. 
+00 1E B8 8D 00 50 9A 00 00 00 00 83 C4 08 8B E5   .....P.......... 
+5D CB 77 05 8E 05 9C 05 AA 05 B8 05 55 8B EC 83   ].w.........U... 
+EC 04 FF 36 06 00 FF 36 04 00 1E B8 90 00 50 9A   ...6...6......P. 
+00 00 00 00 83 C4 08 A1 00 00 89 46 FE FF 4E FE   ...........F..N. 
+EB 3E FF 36 02 00 FF 36 00 00 9A 00 00 00 00 59   .>.6...6.......Y 
+59 88 46 FD FF 4E FE 8A 46 FD B4 00 A9 80 00 75   Y.F..N..F......u 
+0F 16 8D 46 FE 50 8A 46 FD 50 0E E8 FE FA EB 0D   ...F.P.F.P...... 
+16 8D 46 FE 50 8A 46 FD 50 0E E8 6E FB 83 C4 06   ..F.P.F.P..n.... 
+83 7E FE 00 75 BC 33 C0 50 FF 36 04 00 FF 36 02   .~..u.3.P.6...6. 
+00 FF 36 02 00 FF 36 00 00 9A 00 00 00 00 83 C4   ..6...6......... 
+0A 0B C0 74 0A B8 01 00 50 9A 00 00 00 00 59 8B   ...t....P.....Y. 
+E5 5D CB 55 8B EC FF 36 06 00 FF 36 04 00 FF 76   .].U...6...6...v 
+08 FF 76 06 9A 00 00 00 00 83 C4 08 FF 36 06 00   ..v..........6.. 
+FF 36 04 00 1E B8 93 00 50 9A 00 00 00 00 83 C4   .6......P....... 
+08 5D CB 55 8B EC 1E B8 28 00 50 1E B8 96 00 50   .].U....(.P....P 
+9A 00 00 00 00 83 C4 08 1E B8 28 00 50 FF 76 08   ..........(.P.v. 
+FF 76 06 9A 00 00 00 00 83 C4 08 B8 FF FF 50 9A   .v............P. 
+00 00 00 00 59 5D CB 55 8B EC 83 EC 04 56 BE 01   ....Y].U.....V.. 
+00 E9 C2 00 8B C6 B1 02 D3 E0 C4 5E 08 03 D8 26   ...........^...& 
+8B 47 02 26 8B 17 89 46 FE 89 56 FC C4 5E FC FF   .G.&...F..V..^.. 
+46 FC 26 8A 07 98 B1 08 D3 E0 C4 5E FC FF 46 FC   F.&........^..F. 
+50 26 8A 07 98 5A 0B D0 EB 00 A1 00 00 0B 06 02   P&...Z.......... 
+00 75 37 1E B8 B9 00 50 8B C6 B1 02 D3 E0 C4 5E   .u7....P.......^ 
+08 03 D8 26 FF 77 02 26 FF 37 9A 00 00 00 00 83   ...&.w.&.7...... 
+C4 08 89 16 02 00 A3 00 00 0B C2 75 0B 1E B8 BC   ...........u.... 
+00 50 0E E8 4D FF 59 59 EB 4B A1 04 00 0B 06 06   .P..M.YY.K...... 
+00 75 37 1E B8 D4 00 50 8B C6 B1 02 D3 E0 C4 5E   .u7....P.......^ 
+08 03 D8 26 FF 77 02 26 FF 37 9A 00 00 00 00 83   ...&.w.&.7...... 
+C4 08 89 16 06 00 A3 04 00 0B C2 75 0B 1E B8 D6   ...........u.... 
+00 50 0E E8 0D FF 59 59 EB 0B 1E B8 EF 00 50 0E   .P....YY......P. 
+E8 00 FF 59 59 46 3B 76 06 7D 03 E9 36 FF A1 00   ...YYF;v.}..6... 
+00 0B 06 02 00 75 16 1E B8 04 01 50 9A 00 00 00   .....u.....P.... 
+00 59 59 B8 01 00 50 9A 00 00 00 00 59 A1 04 00   .YY...P.....Y... 
+0B 06 06 00 75 0A 8C 1E 06 00 C7 06 04 00 14 00   ....u........... 
+1E B8 28 00 50 1E B8 1F 01 50 9A 00 00 00 00 83   ..(.P....P...... 
+C4 08 FF 36 06 00 FF 36 04 00 1E B8 3B 01 50 9A   ...6...6....;.P. 
+00 00 00 00 83 C4 08 FF 36 02 00 FF 36 00 00 9A   ........6...6... 
+00 00 00 00 59 59 A3 08 00 83 3E 08 00 FF 75 06   ....YY....>...u. 
+C7 06 06 00 01 00 E9 67 06 8B 1E 08 00 83 EB 6E   .......g.......n 
+83 FB 48 76 03 E9 21 06 D1 E3 2E FF A7 1C 12 FF   ..Hv..!......... 
+36 06 00 FF 36 04 00 1E B8 3E 01 50 9A 00 00 00   6...6....>.P.... 
+00 83 C4 08 0E E8 4C F5 FF 36 06 00 FF 36 04 00   ......L..6...6.. 
+1E B8 48 01 50 9A 00 00 00 00 83 C4 08 0E E8 1F   ..H.P........... 
+F7 E9 FD 05 FF 36 06 00 FF 36 04 00 1E B8         .....6...6....   
+
+FIXUPP   0000125F, size: 01ED
+Segment relative offset  03F7 , F1 0001 , T4 0002
+Segment relative offset  03F3 , F1 0001 , T4 0002
+Segment relative pointer 03E3 , F5 , T6 0007
+Segment relative offset  03DF , F1 0001 , T4 0002
+Segment relative offset  03DB , F1 0001 , T4 0002
+Segment relative offset  03D7 , F1 0001 , T4 0002
+Segment relative pointer 03CA , F5 , T6 0007
+Segment relative offset  03C6 , F1 0001 , T4 0002
+Segment relative offset  03C2 , F1 0001 , T4 0002
+Segment relative offset  03BE , F1 0001 , T4 0002
+Segment relative offset  03BA , F5 , T4 0001
+Segment relative offset  03A8 , F1 0001 , T4 0003
+Segment relative offset  039F , F1 0001 , T4 0003
+Segment relative offset  0398 , F1 0001 , T4 0003
+Segment relative offset  0394 , F1 0001 , T4 0003
+Segment relative pointer 038D , F5 , T6 000A
+Segment relative offset  038A , F1 0001 , T4 0002
+Segment relative offset  0386 , F1 0001 , T4 0002
+Segment relative pointer 037D , F5 , T6 0007
+Segment relative offset  0379 , F1 0001 , T4 0002
+Segment relative offset  0375 , F1 0001 , T4 0002
+Segment relative offset  0371 , F1 0001 , T4 0002
+Segment relative pointer 0368 , F5 , T6 0007
+Segment relative offset  0364 , F1 0001 , T4 0002
+Segment relative offset  035F , F1 0001 , T6 000B
+Segment relative offset  035B , F1 0001 , T6 000B
+Segment relative offset  0359 , F1 0001 , T4 0002
+Segment relative offset  0355 , F1 0001 , T4 0002
+Segment relative offset  034F , F1 0001 , T4 0002
+Segment relative offset  034B , F1 0001 , T4 0002
+Segment relative pointer 0345 , F5 , T6 0004
+Segment relative pointer 033A , F5 , T6 0005
+Segment relative offset  0336 , F1 0001 , T4 0002
+Segment relative offset  0330 , F1 0001 , T4 0002
+Segment relative offset  032C , F1 0001 , T4 0002
+Segment relative offset  0319 , F1 0001 , T4 0002
+Segment relative offset  030C , F1 0001 , T4 0002
+Segment relative offset  0304 , F1 0001 , T4 0002
+Segment relative offset  0301 , F1 0001 , T4 0002
+Segment relative pointer 02F8 , F5 , T6 0009
+Segment relative offset  02E2 , F1 0001 , T4 0002
+Segment relative offset  02DC , F1 0001 , T4 0002
+Segment relative offset  02D8 , F1 0001 , T4 0002
+Segment relative offset  02CC , F1 0001 , T4 0002
+Segment relative offset  02C4 , F1 0001 , T4 0002
+Segment relative offset  02C1 , F1 0001 , T4 0002
+Segment relative pointer 02B8 , F5 , T6 0009
+Segment relative offset  02A2 , F1 0001 , T4 0002
+Segment relative offset  029C , F1 0001 , T4 0002
+Segment relative offset  0298 , F1 0001 , T4 0002
+Segment relative pointer 024D , F5 , T6 0004
+Segment relative pointer 0241 , F5 , T6 0007
+Segment relative offset  0237 , F1 0001 , T6 000B
+Segment relative pointer 022E , F5 , T6 0007
+Segment relative offset  022A , F1 0001 , T4 0002
+Segment relative offset  0225 , F1 0001 , T6 000B
+Segment relative pointer 0217 , F5 , T6 0007
+Segment relative offset  0213 , F1 0001 , T4 0002
+Segment relative offset  020F , F1 0001 , T4 0002
+Segment relative offset  020B , F1 0001 , T4 0002
+Segment relative pointer 0202 , F5 , T6 0007
+Segment relative offset  01F9 , F1 0001 , T4 0002
+Segment relative offset  01F5 , F1 0001 , T4 0002
+Segment relative pointer 01E7 , F5 , T6 0004
+Segment relative pointer 01D7 , F5 , T6 0006
+Segment relative offset  01D4 , F1 0001 , T4 0002
+Segment relative offset  01D0 , F1 0001 , T4 0002
+Segment relative offset  01CC , F1 0001 , T4 0003
+Segment relative offset  01C8 , F1 0001 , T4 0003
+Segment relative pointer 0188 , F5 , T6 000A
+Segment relative offset  0185 , F1 0001 , T4 0002
+Segment relative offset  0181 , F1 0001 , T4 0002
+Segment relative offset  0175 , F1 0001 , T4 0003
+Segment relative pointer 016D , F5 , T6 0007
+Segment relative offset  0169 , F1 0001 , T4 0002
+Segment relative offset  0165 , F1 0001 , T4 0002
+Segment relative offset  0161 , F1 0001 , T4 0002
+Segment relative offset  0157 , F5 , T4 0001
+Segment relative offset  0155 , F5 , T4 0001
+Segment relative offset  0153 , F5 , T4 0001
+Segment relative offset  0151 , F5 , T4 0001
+Segment relative offset  014F , F5 , T4 0001
+Segment relative pointer 0144 , F5 , T6 0007
+Segment relative offset  0140 , F1 0001 , T4 0002
+Segment relative offset  013C , F1 0001 , T4 0002
+Segment relative offset  0138 , F1 0001 , T4 0002
+Segment relative pointer 012F , F5 , T6 0007
+Segment relative offset  0127 , F1 0001 , T4 0002
+Segment relative offset  0123 , F1 0001 , T4 0002
+Segment relative pointer 0108 , F5 , T6 0007
+Segment relative offset  0100 , F1 0001 , T4 0002
+Segment relative offset  00FC , F1 0001 , T4 0002
+Segment relative pointer 00E7 , F5 , T6 0002
+Segment relative pointer 00D7 , F5 , T6 0007
+Segment relative offset  00CF , F1 0001 , T4 0002
+Segment relative offset  00CB , F1 0001 , T4 0002
+Segment relative pointer 0071 , F5 , T6 0008
+Segment relative offset  006A , F1 0001 , T4 0002
+Segment relative offset  0066 , F1 0001 , T4 0002
+Segment relative pointer 0046 , F5 , T6 0007
+Segment relative offset  003E , F1 0001 , T4 0002
+Segment relative offset  003A , F1 0001 , T4 0002
+Segment relative pointer 001B , F5 , T6 0007
+Segment relative offset  0013 , F1 0001 , T4 0002
+Segment relative offset  000F , F1 0001 , T4 0002
+
+LEDATA   00001450, size: 03FF
+01 FB 0B 4B 01 50 9A 00 00 00 00 83 C4 08 0E E8   ...K.P.......... 
+17 F5 FF 36 06 00 FF 36 04 00 1E B8 55 01 EB C9   ...6...6....U... 
+FF 36 06 00 FF 36 04 00 1E B8 58 01 50 9A 00 00   .6...6....X.P... 
+00 00 83 C4 08 0E E8 F0 F4 FF 36 06 00 FF 36 04   ..........6...6. 
+00 1E B8 62 01 EB A2 FF 36 06 00 FF 36 04 00 1E   ...b....6...6... 
+B8 65 01 50 9A 00 00 00 00 83 C4 08 0E E8 C9 F4   .e.P............ 
+FF 36 06 00 FF 36 04 00 1E B8 6F 01 E9 7A FF FF   .6...6....o..z.. 
+36 06 00 FF 36 04 00 1E B8 72 01 50 9A 00 00 00   6...6....r.P.... 
+00 83 C4 08 0E E8 A1 F4 FF 36 06 00 FF 36 04 00   .........6...6.. 
+1E B8 7C 01 E9 52 FF FF 36 06 00 FF 36 04 00 1E   ..|..R..6...6... 
+B8 7F 01 50 9A 00 00 00 00 83 C4 08 0E E8 79 F4   ...P..........y. 
+FF 36 06 00 FF 36 04 00 1E B8 89 01 E9 2A FF FF   .6...6.......*.. 
+36 06 00 FF 36 04 00 1E B8 8C 01 50 9A 00 00 00   6...6......P.... 
+00 83 C4 08 0E E8 51 F4 FF 36 06 00 FF 36 04 00   ......Q..6...6.. 
+1E B8 96 01 E9 02 FF FF 36 06 00 FF 36 04 00 1E   ........6...6... 
+B8 99 01 50 9A 00 00 00 00 83 C4 08 0E E8 29 F4   ...P..........). 
+FF 36 06 00 FF 36 04 00 1E B8 A3 01 E9 DA FE FF   .6...6.......... 
+36 06 00 FF 36 04 00 1E B8 A6 01 50 9A 00 00 00   6...6......P.... 
+00 83 C4 08 0E E8 01 F4 FF 36 06 00 FF 36 04 00   .........6...6.. 
+1E B8 B0 01 E9 B2 FE FF 36 06 00 FF 36 04 00 1E   ........6...6... 
+B8 B3 01 50 9A 00 00 00 00 83 C4 08 0E E8 D9 F3   ...P............ 
+FF 36 06 00 FF 36 04 00 1E B8 BD 01 E9 8A FE FF   .6...6.......... 
+36 06 00 FF 36 04 00 1E B8 C0 01 50 9A 00 00 00   6...6......P.... 
+00 83 C4 08 0E E8 B1 F3 FF 36 06 00 FF 36 04 00   .........6...6.. 
+1E B8 CA 01 E9 62 FE FF 36 06 00 FF 36 04 00 1E   .....b..6...6... 
+B8 CD 01 50 9A 00 00 00 00 83 C4 08 0E E8 89 F3   ...P............ 
+FF 36 06 00 FF 36 04 00 1E B8 D7 01 E9 3A FE FF   .6...6.......:.. 
+36 06 00 FF 36 04 00 1E B8 DA 01 50 9A 00 00 00   6...6......P.... 
+00 83 C4 08 0E E8 61 F3 FF 36 06 00 FF 36 04 00   ......a..6...6.. 
+1E B8 E4 01 E9 12 FE FF 36 06 00 FF 36 04 00 1E   ........6...6... 
+B8 E7 01 50 9A 00 00 00 00 83 C4 08 0E E8 39 F3   ...P..........9. 
+FF 36 06 00 FF 36 04 00 1E B8 F1 01 E9 EA FD FF   .6...6.......... 
+36 06 00 FF 36 04 00 1E B8 F4 01 50 9A 00 00 00   6...6......P.... 
+00 83 C4 08 B8 01 00 50 9A 00 00 00 00 59 E9 D5   .......P.....Y.. 
+03 FF 36 06 00 FF 36 04 00 1E B8 FE 01 50 9A 00   ..6...6......P.. 
+00 00 00 83 C4 08 0E E8 EF F2 FF 36 06 00 FF 36   ...........6...6 
+04 00 1E B8 08 02 E9 A0 FD FF 36 06 00 FF 36 04   ..........6...6. 
+00 1E B8 0B 02 50 9A 00 00 00 00 83 C4 08 0E E8   .....P.......... 
+C7 F2 FF 36 06 00 FF 36 04 00 1E B8 15 02 E9 78   ...6...6.......x 
+FD FF 36 06 00 FF 36 04 00 1E B8 18 02 50 9A 00   ..6...6......P.. 
+00 00 00 83 C4 08 0E E8 9F F2 FF 36 06 00 FF 36   ...........6...6 
+04 00 1E B8 22 02 E9 50 FD FF 36 06 00 FF 36 04   ...."..P..6...6. 
+00 1E B8 25 02 50 9A 00 00 00 00 83 C4 08 0E E8   ...%.P.......... 
+77 F2 FF 36 06 00 FF 36 04 00 1E B8 2F 02 E9 28   w..6...6..../..( 
+FD FF 36 06 00 FF 36 04 00 1E B8 32 02 50 9A 00   ..6...6....2.P.. 
+00 00 00 83 C4 08 0E E8 4F F2 FF 36 06 00 FF 36   ........O..6...6 
+04 00 1E B8 3C 02 E9 00 FD FF 36 06 00 FF 36 04   ....<.....6...6. 
+00 1E B8 3F 02 50 9A 00 00 00 00 83 C4 08 0E E8   ...?.P.......... 
+27 F2 FF 36 06 00 FF 36 04 00 1E B8 49 02 E9 D8   '..6...6....I... 
+FC FF 36 06 00 FF 36 04 00 1E B8 4C 02 50 9A 00   ..6...6....L.P.. 
+00 00 00 83 C4 08 0E E8 FF F1 FF 36 06 00 FF 36   ...........6...6 
+04 00 1E B8 56 02 E9 B0 FC FF 36 06 00 FF 36 04   ....V.....6...6. 
+00 1E B8 59 02 50 9A 00 00 00 00 83 C4 08 0E E8   ...Y.P.......... 
+D7 F1 FF 36 06 00 FF 36 04 00 1E B8 63 02 E9 88   ...6...6....c... 
+FC FF 36 06 00 FF 36 04 00 1E B8 66 02 50 9A 00   ..6...6....f.P.. 
+00 00 00 83 C4 08 0E E8 AF F1 FF 36 06 00 FF 36   ...........6...6 
+04 00 1E B8 70 02 E9 60 FC FF 36 06 00 FF 36 04   ....p..`..6...6. 
+00 1E B8 73 02 50 9A 00 00 00 00 83 C4 08 0E E8   ...s.P.......... 
+87 F1 FF 36 06 00 FF 36 04 00 1E B8 7D 02 E9 38   ...6...6....}..8 
+FC FF 36 06 00 FF 36 04 00 1E B8 80 02 50 9A 00   ..6...6......P.. 
+00 00 00 83 C4 08 0E E8 5F F1 0E E8 93 F9 FF 36   ........_......6 
+06 00 FF 36 04 00 1E B8 8A 02 EB 3E FF 36 06 00   ...6.......>.6.. 
+FF 36 04 00 1E B8 8D 02 50 9A 00 00 00 00 83 C4   .6......P....... 
+08 0E E8 34 F1 FF 36 06 00 FF 36 04 00 1E B8      ...4..6...6....  
+
+FIXUPP   00001853, size: 035A
+Segment relative offset  03F8 , F1 0001 , T4 0002
+Segment relative offset  03F4 , F1 0001 , T4 0002
+Segment relative pointer 03E7 , F5 , T6 0007
+Segment relative offset  03E3 , F1 0001 , T4 0002
+Segment relative offset  03DF , F1 0001 , T4 0002
+Segment relative offset  03DB , F1 0001 , T4 0002
+Segment relative offset  03D5 , F1 0001 , T4 0002
+Segment relative offset  03D1 , F1 0001 , T4 0002
+Segment relative offset  03CD , F1 0001 , T4 0002
+Segment relative pointer 03BC , F5 , T6 0007
+Segment relative offset  03B8 , F1 0001 , T4 0002
+Segment relative offset  03B4 , F1 0001 , T4 0002
+Segment relative offset  03B0 , F1 0001 , T4 0002
+Segment relative offset  03A9 , F1 0001 , T4 0002
+Segment relative offset  03A5 , F1 0001 , T4 0002
+Segment relative offset  03A1 , F1 0001 , T4 0002
+Segment relative pointer 0394 , F5 , T6 0007
+Segment relative offset  0390 , F1 0001 , T4 0002
+Segment relative offset  038C , F1 0001 , T4 0002
+Segment relative offset  0388 , F1 0001 , T4 0002
+Segment relative offset  0381 , F1 0001 , T4 0002
+Segment relative offset  037D , F1 0001 , T4 0002
+Segment relative offset  0379 , F1 0001 , T4 0002
+Segment relative pointer 036C , F5 , T6 0007
+Segment relative offset  0368 , F1 0001 , T4 0002
+Segment relative offset  0364 , F1 0001 , T4 0002
+Segment relative offset  0360 , F1 0001 , T4 0002
+Segment relative offset  0359 , F1 0001 , T4 0002
+Segment relative offset  0355 , F1 0001 , T4 0002
+Segment relative offset  0351 , F1 0001 , T4 0002
+Segment relative pointer 0344 , F5 , T6 0007
+Segment relative offset  0340 , F1 0001 , T4 0002
+Segment relative offset  033C , F1 0001 , T4 0002
+Segment relative offset  0338 , F1 0001 , T4 0002
+Segment relative offset  0331 , F1 0001 , T4 0002
+Segment relative offset  032D , F1 0001 , T4 0002
+Segment relative offset  0329 , F1 0001 , T4 0002
+Segment relative pointer 031C , F5 , T6 0007
+Segment relative offset  0318 , F1 0001 , T4 0002
+Segment relative offset  0314 , F1 0001 , T4 0002
+Segment relative offset  0310 , F1 0001 , T4 0002
+Segment relative offset  0309 , F1 0001 , T4 0002
+Segment relative offset  0305 , F1 0001 , T4 0002
+Segment relative offset  0301 , F1 0001 , T4 0002
+Segment relative pointer 02F4 , F5 , T6 0007
+Segment relative offset  02F0 , F1 0001 , T4 0002
+Segment relative offset  02EC , F1 0001 , T4 0002
+Segment relative offset  02E8 , F1 0001 , T4 0002
+Segment relative offset  02E1 , F1 0001 , T4 0002
+Segment relative offset  02DD , F1 0001 , T4 0002
+Segment relative offset  02D9 , F1 0001 , T4 0002
+Segment relative pointer 02CC , F5 , T6 0007
+Segment relative offset  02C8 , F1 0001 , T4 0002
+Segment relative offset  02C4 , F1 0001 , T4 0002
+Segment relative offset  02C0 , F1 0001 , T4 0002
+Segment relative offset  02B9 , F1 0001 , T4 0002
+Segment relative offset  02B5 , F1 0001 , T4 0002
+Segment relative offset  02B1 , F1 0001 , T4 0002
+Segment relative pointer 02A4 , F5 , T6 0007
+Segment relative offset  02A0 , F1 0001 , T4 0002
+Segment relative offset  029C , F1 0001 , T4 0002
+Segment relative offset  0298 , F1 0001 , T4 0002
+Segment relative offset  0291 , F1 0001 , T4 0002
+Segment relative offset  028D , F1 0001 , T4 0002
+Segment relative offset  0289 , F1 0001 , T4 0002
+Segment relative pointer 027C , F5 , T6 0007
+Segment relative offset  0278 , F1 0001 , T4 0002
+Segment relative offset  0274 , F1 0001 , T4 0002
+Segment relative offset  0270 , F1 0001 , T4 0002
+Segment relative offset  0269 , F1 0001 , T4 0002
+Segment relative offset  0265 , F1 0001 , T4 0002
+Segment relative offset  0261 , F1 0001 , T4 0002
+Segment relative pointer 0254 , F5 , T6 0007
+Segment relative offset  0250 , F1 0001 , T4 0002
+Segment relative offset  024C , F1 0001 , T4 0002
+Segment relative offset  0248 , F1 0001 , T4 0002
+Segment relative offset  0241 , F1 0001 , T4 0002
+Segment relative offset  023D , F1 0001 , T4 0002
+Segment relative offset  0239 , F1 0001 , T4 0002
+Segment relative pointer 022C , F5 , T6 0007
+Segment relative offset  0228 , F1 0001 , T4 0002
+Segment relative offset  0224 , F1 0001 , T4 0002
+Segment relative offset  0220 , F1 0001 , T4 0002
+Segment relative pointer 0216 , F5 , T6 0004
+Segment relative pointer 020A , F5 , T6 0007
+Segment relative offset  0206 , F1 0001 , T4 0002
+Segment relative offset  0202 , F1 0001 , T4 0002
+Segment relative offset  01FE , F1 0001 , T4 0002
+Segment relative offset  01F7 , F1 0001 , T4 0002
+Segment relative offset  01F3 , F1 0001 , T4 0002
+Segment relative offset  01EF , F1 0001 , T4 0002
+Segment relative pointer 01E2 , F5 , T6 0007
+Segment relative offset  01DE , F1 0001 , T4 0002
+Segment relative offset  01DA , F1 0001 , T4 0002
+Segment relative offset  01D6 , F1 0001 , T4 0002
+Segment relative offset  01CF , F1 0001 , T4 0002
+Segment relative offset  01CB , F1 0001 , T4 0002
+Segment relative offset  01C7 , F1 0001 , T4 0002
+Segment relative pointer 01BA , F5 , T6 0007
+Segment relative offset  01B6 , F1 0001 , T4 0002
+Segment relative offset  01B2 , F1 0001 , T4 0002
+Segment relative offset  01AE , F1 0001 , T4 0002
+Segment relative offset  01A7 , F1 0001 , T4 0002
+Segment relative offset  01A3 , F1 0001 , T4 0002
+Segment relative offset  019F , F1 0001 , T4 0002
+Segment relative pointer 0192 , F5 , T6 0007
+Segment relative offset  018E , F1 0001 , T4 0002
+Segment relative offset  018A , F1 0001 , T4 0002
+Segment relative offset  0186 , F1 0001 , T4 0002
+Segment relative offset  017F , F1 0001 , T4 0002
+Segment relative offset  017B , F1 0001 , T4 0002
+Segment relative offset  0177 , F1 0001 , T4 0002
+Segment relative pointer 016A , F5 , T6 0007
+Segment relative offset  0166 , F1 0001 , T4 0002
+Segment relative offset  0162 , F1 0001 , T4 0002
+Segment relative offset  015E , F1 0001 , T4 0002
+Segment relative offset  0157 , F1 0001 , T4 0002
+Segment relative offset  0153 , F1 0001 , T4 0002
+Segment relative offset  014F , F1 0001 , T4 0002
+Segment relative pointer 0142 , F5 , T6 0007
+Segment relative offset  013E , F1 0001 , T4 0002
+Segment relative offset  013A , F1 0001 , T4 0002
+Segment relative offset  0136 , F1 0001 , T4 0002
+Segment relative offset  012F , F1 0001 , T4 0002
+Segment relative offset  012B , F1 0001 , T4 0002
+Segment relative offset  0127 , F1 0001 , T4 0002
+Segment relative pointer 011A , F5 , T6 0007
+Segment relative offset  0116 , F1 0001 , T4 0002
+Segment relative offset  0112 , F1 0001 , T4 0002
+Segment relative offset  010E , F1 0001 , T4 0002
+Segment relative offset  0107 , F1 0001 , T4 0002
+Segment relative offset  0103 , F1 0001 , T4 0002
+Segment relative offset  00FF , F1 0001 , T4 0002
+Segment relative pointer 00F2 , F5 , T6 0007
+Segment relative offset  00EE , F1 0001 , T4 0002
+Segment relative offset  00EA , F1 0001 , T4 0002
+Segment relative offset  00E6 , F1 0001 , T4 0002
+Segment relative offset  00DF , F1 0001 , T4 0002
+Segment relative offset  00DB , F1 0001 , T4 0002
+Segment relative offset  00D7 , F1 0001 , T4 0002
+Segment relative pointer 00CA , F5 , T6 0007
+Segment relative offset  00C6 , F1 0001 , T4 0002
+Segment relative offset  00C2 , F1 0001 , T4 0002
+Segment relative offset  00BE , F1 0001 , T4 0002
+Segment relative offset  00B7 , F1 0001 , T4 0002
+Segment relative offset  00B3 , F1 0001 , T4 0002
+Segment relative offset  00AF , F1 0001 , T4 0002
+Segment relative pointer 00A2 , F5 , T6 0007
+Segment relative offset  009E , F1 0001 , T4 0002
+Segment relative offset  009A , F1 0001 , T4 0002
+Segment relative offset  0096 , F1 0001 , T4 0002
+Segment relative offset  008F , F1 0001 , T4 0002
+Segment relative offset  008B , F1 0001 , T4 0002
+Segment relative offset  0087 , F1 0001 , T4 0002
+Segment relative pointer 007A , F5 , T6 0007
+Segment relative offset  0076 , F1 0001 , T4 0002
+Segment relative offset  0072 , F1 0001 , T4 0002
+Segment relative offset  006E , F1 0001 , T4 0002
+Segment relative offset  0067 , F1 0001 , T4 0002
+Segment relative offset  0063 , F1 0001 , T4 0002
+Segment relative offset  005F , F1 0001 , T4 0002
+Segment relative pointer 0052 , F5 , T6 0007
+Segment relative offset  004E , F1 0001 , T4 0002
+Segment relative offset  004A , F1 0001 , T4 0002
+Segment relative offset  0046 , F1 0001 , T4 0002
+Segment relative offset  0040 , F1 0001 , T4 0002
+Segment relative offset  003C , F1 0001 , T4 0002
+Segment relative offset  0038 , F1 0001 , T4 0002
+Segment relative pointer 002B , F5 , T6 0007
+Segment relative offset  0027 , F1 0001 , T4 0002
+Segment relative offset  0023 , F1 0001 , T4 0002
+Segment relative offset  001F , F1 0001 , T4 0002
+Segment relative offset  0019 , F1 0001 , T4 0002
+Segment relative offset  0015 , F1 0001 , T4 0002
+Segment relative offset  0011 , F1 0001 , T4 0002
+Segment relative pointer 0004 , F5 , T6 0007
+Segment relative offset  0000 , F1 0001 , T4 0002
+
+LEDATA   00001BB1, size: 02BA
+01 F7 0F 97 02 50 9A 00 00 00 00 83 C4 08 0E E8   .....P.......... 
+07 F3 FF 36 06 00 FF 36 04 00 1E B8 9A 02 50 9A   ...6...6......P. 
+00 00 00 00 83 C4 08 E9 D0 01 FF 36 06 00 FF 36   ...........6...6 
+04 00 1E B8 9D 02 50 9A 00 00 00 00 83 C4 08 0E   ......P......... 
+E8 EA F0 FF 36 06 00 FF 36 04 00 1E B8 A7 02 E9   ....6...6....... 
+9B FB FF 36 06 00 FF 36 04 00 1E B8 AA 02 50 9A   ...6...6......P. 
+00 00 00 00 83 C4 08 0E E8 C2 F0 FF 36 06 00 FF   ............6... 
+36 04 00 1E B8 B4 02 E9 73 FB FF 36 06 00 FF 36   6.......s..6...6 
+04 00 1E B8 B7 02 50 9A 00 00 00 00 83 C4 08 0E   ......P......... 
+E8 9A F0 FF 36 06 00 FF 36 04 00 1E B8 C1 02 E9   ....6...6....... 
+4B FB FF 36 06 00 FF 36 04 00 1E B8 C4 02 50 9A   K..6...6......P. 
+00 00 00 00 83 C4 08 0E E8 72 F0 FF 36 06 00 FF   .........r..6... 
+36 04 00 1E B8 CE 02 E9 23 FB FF 36 06 00 FF 36   6.......#..6...6 
+04 00 1E B8 D1 02 50 9A 00 00 00 00 83 C4 08 0E   ......P......... 
+E8 4A F0 FF 36 06 00 FF 36 04 00 1E B8 DB 02 E9   .J..6...6....... 
+FB FA FF 36 06 00 FF 36 04 00 1E B8 DE 02 50 9A   ...6...6......P. 
+00 00 00 00 83 C4 08 0E E8 22 F0 FF 36 06 00 FF   ........."..6... 
+36 04 00 1E B8 E8 02 E9 D3 FA FF 36 06 00 FF 36   6..........6...6 
+04 00 1E B8 EB 02 50 9A 00 00 00 00 83 C4 08 0E   ......P......... 
+E8 FA EF FF 36 06 00 FF 36 04 00 1E B8 F5 02 E9   ....6...6....... 
+AB FA FF 36 06 00 FF 36 04 00 1E B8 F8 02 50 9A   ...6...6......P. 
+00 00 00 00 83 C4 08 0E E8 D2 EF FF 36 06 00 FF   ............6... 
+36 04 00 1E B8 02 03 E9 83 FA FF 36 06 00 FF 36   6..........6...6 
+04 00 1E B8 05 03 50 9A 00 00 00 00 83 C4 08 0E   ......P......... 
+E8 AA EF FF 36 06 00 FF 36 04 00 1E B8 0F 03 E9   ....6...6....... 
+5B FA FF 36 06 00 FF 36 04 00 1E B8 12 03 50 9A   [..6...6......P. 
+00 00 00 00 83 C4 08 0E E8 82 EF FF 36 06 00 FF   ............6... 
+36 04 00 1E B8 1C 03 E9 33 FA FF 36 06 00 FF 36   6.......3..6...6 
+04 00 1E B8 1F 03 50 9A 00 00 00 00 83 C4 08 0E   ......P......... 
+E8 5A EF FF 36 06 00 FF 36 04 00 1E B8 29 03 E9   .Z..6...6....).. 
+0B FA A0 08 00 50 0E E8 B1 F1 59 FF 36 06 00 FF   .....P....Y.6... 
+36 04 00 1E B8 2C 03 E9 F3 F9 FF 36 02 00 FF 36   6....,.....6...6 
+00 00 9A 00 00 00 00 59 59 A3 08 00 83 3E 08 00   .......YY....>.. 
+FF 75 06 C7 06 06 00 01 00 83 3E 06 00 00 75 03   .u........>...u. 
+E9 8F F9 5E 8B E5 5D CB BC 0B D6 11 F1 0B D6 11   ...^..]......... 
+18 0C D6 11 3F 0C D6 11 67 0C D6 11 8F 0C D6 11   ....?...g....... 
+B7 0C D6 11 DF 0C D6 11 07 0D D6 11 2F 0D D6 11   ............/... 
+57 0D D6 11 7F 0D D6 11 A7 0D D6 11 CF 0D D6 11   W............... 
+F7 0D D6 11 19 0E D6 11 41 0E D6 11 69 0E 91 0E   ........A...i... 
+B9 0E D6 11 E1 0E D6 11 09 0F D6 11 31 0F 59 0F   ............1.Y. 
+81 0F D6 11 A9 0F D4 0F D6 11 D6 11 1E 10 46 10   ..............F. 
+6E 10 D6 11 96 10 D6 11 BE 10 D6 11 E6 10 D6 11   n............... 
+0E 11 D6 11 D6 11 D6 11 D6 11 D6 11 36 11 D6 11   ............6... 
+5E 11 D6 11 86 11 D6 11 AE 11                     ^.........       
+
+FIXUPP   00001E6F, size: 02EC
+Segment relative offset  02B5 , F5 , T4 0001
+Segment relative offset  02B3 , F5 , T4 0001
+Segment relative offset  02B1 , F5 , T4 0001
+Segment relative offset  02AF , F5 , T4 0001
+Segment relative offset  02AD , F5 , T4 0001
+Segment relative offset  02AB , F5 , T4 0001
+Segment relative offset  02A9 , F5 , T4 0001
+Segment relative offset  02A7 , F5 , T4 0001
+Segment relative offset  02A5 , F5 , T4 0001
+Segment relative offset  02A3 , F5 , T4 0001
+Segment relative offset  02A1 , F5 , T4 0001
+Segment relative offset  029F , F5 , T4 0001
+Segment relative offset  029D , F5 , T4 0001
+Segment relative offset  029B , F5 , T4 0001
+Segment relative offset  0299 , F5 , T4 0001
+Segment relative offset  0297 , F5 , T4 0001
+Segment relative offset  0295 , F5 , T4 0001
+Segment relative offset  0293 , F5 , T4 0001
+Segment relative offset  0291 , F5 , T4 0001
+Segment relative offset  028F , F5 , T4 0001
+Segment relative offset  028D , F5 , T4 0001
+Segment relative offset  028B , F5 , T4 0001
+Segment relative offset  0289 , F5 , T4 0001
+Segment relative offset  0287 , F5 , T4 0001
+Segment relative offset  0285 , F5 , T4 0001
+Segment relative offset  0283 , F5 , T4 0001
+Segment relative offset  0281 , F5 , T4 0001
+Segment relative offset  027F , F5 , T4 0001
+Segment relative offset  027D , F5 , T4 0001
+Segment relative offset  027B , F5 , T4 0001
+Segment relative offset  0279 , F5 , T4 0001
+Segment relative offset  0277 , F5 , T4 0001
+Segment relative offset  0275 , F5 , T4 0001
+Segment relative offset  0273 , F5 , T4 0001
+Segment relative offset  0271 , F5 , T4 0001
+Segment relative offset  026F , F5 , T4 0001
+Segment relative offset  026D , F5 , T4 0001
+Segment relative offset  026B , F5 , T4 0001
+Segment relative offset  0269 , F5 , T4 0001
+Segment relative offset  0267 , F5 , T4 0001
+Segment relative offset  0265 , F5 , T4 0001
+Segment relative offset  0263 , F5 , T4 0001
+Segment relative offset  0261 , F5 , T4 0001
+Segment relative offset  025F , F5 , T4 0001
+Segment relative offset  025D , F5 , T4 0001
+Segment relative offset  025B , F5 , T4 0001
+Segment relative offset  0259 , F5 , T4 0001
+Segment relative offset  0257 , F5 , T4 0001
+Segment relative offset  0255 , F5 , T4 0001
+Segment relative offset  0253 , F5 , T4 0001
+Segment relative offset  0251 , F5 , T4 0001
+Segment relative offset  024F , F5 , T4 0001
+Segment relative offset  024D , F5 , T4 0001
+Segment relative offset  024B , F5 , T4 0001
+Segment relative offset  0249 , F5 , T4 0001
+Segment relative offset  0247 , F5 , T4 0001
+Segment relative offset  0245 , F5 , T4 0001
+Segment relative offset  0243 , F5 , T4 0001
+Segment relative offset  0241 , F5 , T4 0001
+Segment relative offset  023F , F5 , T4 0001
+Segment relative offset  023D , F5 , T4 0001
+Segment relative offset  023B , F5 , T4 0001
+Segment relative offset  0239 , F5 , T4 0001
+Segment relative offset  0237 , F5 , T4 0001
+Segment relative offset  0235 , F5 , T4 0001
+Segment relative offset  0233 , F5 , T4 0001
+Segment relative offset  0231 , F5 , T4 0001
+Segment relative offset  022F , F5 , T4 0001
+Segment relative offset  022D , F5 , T4 0001
+Segment relative offset  022B , F5 , T4 0001
+Segment relative offset  0229 , F5 , T4 0001
+Segment relative offset  0227 , F5 , T4 0001
+Segment relative offset  0225 , F5 , T4 0001
+Segment relative offset  0218 , F1 0001 , T4 0003
+Segment relative offset  0212 , F1 0001 , T4 0003
+Segment relative offset  020B , F1 0001 , T4 0003
+Segment relative offset  0207 , F1 0001 , T4 0003
+Segment relative pointer 0200 , F5 , T6 000A
+Segment relative offset  01FD , F1 0001 , T4 0002
+Segment relative offset  01F9 , F1 0001 , T4 0002
+Segment relative offset  01F2 , F1 0001 , T4 0002
+Segment relative offset  01EE , F1 0001 , T4 0002
+Segment relative offset  01EA , F1 0001 , T4 0002
+Segment relative offset  01E0 , F1 0001 , T4 0003
+Segment relative offset  01DA , F1 0001 , T4 0002
+Segment relative offset  01D6 , F1 0001 , T4 0002
+Segment relative offset  01D2 , F1 0001 , T4 0002
+Segment relative pointer 01C5 , F5 , T6 0007
+Segment relative offset  01C1 , F1 0001 , T4 0002
+Segment relative offset  01BD , F1 0001 , T4 0002
+Segment relative offset  01B9 , F1 0001 , T4 0002
+Segment relative offset  01B2 , F1 0001 , T4 0002
+Segment relative offset  01AE , F1 0001 , T4 0002
+Segment relative offset  01AA , F1 0001 , T4 0002
+Segment relative pointer 019D , F5 , T6 0007
+Segment relative offset  0199 , F1 0001 , T4 0002
+Segment relative offset  0195 , F1 0001 , T4 0002
+Segment relative offset  0191 , F1 0001 , T4 0002
+Segment relative offset  018A , F1 0001 , T4 0002
+Segment relative offset  0186 , F1 0001 , T4 0002
+Segment relative offset  0182 , F1 0001 , T4 0002
+Segment relative pointer 0175 , F5 , T6 0007
+Segment relative offset  0171 , F1 0001 , T4 0002
+Segment relative offset  016D , F1 0001 , T4 0002
+Segment relative offset  0169 , F1 0001 , T4 0002
+Segment relative offset  0162 , F1 0001 , T4 0002
+Segment relative offset  015E , F1 0001 , T4 0002
+Segment relative offset  015A , F1 0001 , T4 0002
+Segment relative pointer 014D , F5 , T6 0007
+Segment relative offset  0149 , F1 0001 , T4 0002
+Segment relative offset  0145 , F1 0001 , T4 0002
+Segment relative offset  0141 , F1 0001 , T4 0002
+Segment relative offset  013A , F1 0001 , T4 0002
+Segment relative offset  0136 , F1 0001 , T4 0002
+Segment relative offset  0132 , F1 0001 , T4 0002
+Segment relative pointer 0125 , F5 , T6 0007
+Segment relative offset  0121 , F1 0001 , T4 0002
+Segment relative offset  011D , F1 0001 , T4 0002
+Segment relative offset  0119 , F1 0001 , T4 0002
+Segment relative offset  0112 , F1 0001 , T4 0002
+Segment relative offset  010E , F1 0001 , T4 0002
+Segment relative offset  010A , F1 0001 , T4 0002
+Segment relative pointer 00FD , F5 , T6 0007
+Segment relative offset  00F9 , F1 0001 , T4 0002
+Segment relative offset  00F5 , F1 0001 , T4 0002
+Segment relative offset  00F1 , F1 0001 , T4 0002
+Segment relative offset  00EA , F1 0001 , T4 0002
+Segment relative offset  00E6 , F1 0001 , T4 0002
+Segment relative offset  00E2 , F1 0001 , T4 0002
+Segment relative pointer 00D5 , F5 , T6 0007
+Segment relative offset  00D1 , F1 0001 , T4 0002
+Segment relative offset  00CD , F1 0001 , T4 0002
+Segment relative offset  00C9 , F1 0001 , T4 0002
+Segment relative offset  00C2 , F1 0001 , T4 0002
+Segment relative offset  00BE , F1 0001 , T4 0002
+Segment relative offset  00BA , F1 0001 , T4 0002
+Segment relative pointer 00AD , F5 , T6 0007
+Segment relative offset  00A9 , F1 0001 , T4 0002
+Segment relative offset  00A5 , F1 0001 , T4 0002
+Segment relative offset  00A1 , F1 0001 , T4 0002
+Segment relative offset  009A , F1 0001 , T4 0002
+Segment relative offset  0096 , F1 0001 , T4 0002
+Segment relative offset  0092 , F1 0001 , T4 0002
+Segment relative pointer 0085 , F5 , T6 0007
+Segment relative offset  0081 , F1 0001 , T4 0002
+Segment relative offset  007D , F1 0001 , T4 0002
+Segment relative offset  0079 , F1 0001 , T4 0002
+Segment relative offset  0072 , F1 0001 , T4 0002
+Segment relative offset  006E , F1 0001 , T4 0002
+Segment relative offset  006A , F1 0001 , T4 0002
+Segment relative pointer 005D , F5 , T6 0007
+Segment relative offset  0059 , F1 0001 , T4 0002
+Segment relative offset  0055 , F1 0001 , T4 0002
+Segment relative offset  0051 , F1 0001 , T4 0002
+Segment relative offset  004A , F1 0001 , T4 0002
+Segment relative offset  0046 , F1 0001 , T4 0002
+Segment relative offset  0042 , F1 0001 , T4 0002
+Segment relative pointer 0035 , F5 , T6 0007
+Segment relative offset  0031 , F1 0001 , T4 0002
+Segment relative offset  002D , F1 0001 , T4 0002
+Segment relative offset  0029 , F1 0001 , T4 0002
+Segment relative pointer 001D , F5 , T6 0007
+Segment relative offset  0019 , F1 0001 , T4 0002
+Segment relative offset  0015 , F1 0001 , T4 0002
+Segment relative offset  0011 , F1 0001 , T4 0002
+Segment relative pointer 0004 , F5 , T6 0007
+Segment relative offset  0000 , F1 0001 , T4 0002
+
+LEDATA   0000215F, size: 0332
+02 00 00 00 00 00 00 00 00 00 00 2C 20 73 69 7A   ..........., siz 
+65 3A 20 00 0D 0A 00 55 6E 6B 6E 6F 77 6E 20 52   e: ....Unknown R 
+65 63 6F 72 64 20 54 79 70 65 20 00 20 61 74 20   ecord Type . at  
+6C 66 61 20 00 0D 0A 00 53 65 6C 66 20 72 65 6C   lfa ....Self rel 
+61 74 69 76 65 20 00 53 65 67 6D 65 6E 74 20 72   ative .Segment r 
+65 6C 61 74 69 76 65 20 00 6C 6F 62 79 74 65 20   elative .lobyte  
+20 00 6F 66 66 73 65 74 20 20 00 62 61 73 65 20    .offset  .base  
+20 20 20 00 70 6F 69 6E 74 65 72 20 00 68 69 62      .pointer .hib 
+79 74 65 20 20 00 20 2C 20 46 00 20 2C 20 54 00   yte  . , F. , T. 
+0D 0A 00 0D 0A 00 0D 0A 00 46 61 74 61 6C 20 65   .........Fatal e 
+72 72 6F 72 2C 20 6F 62 6A 65 63 74 20 64 75 6D   rror, object dum 
+70 20 61 62 6F 72 74 65 64 0D 0A 00 72 62 00 43   p aborted...rb.C 
+61 6E 6E 6F 74 20 6F 70 65 6E 20 69 6E 70 75 74   annot open input 
+20 66 69 6C 65 0A 00 77 00 43 61 6E 6E 6F 74 20    file..w.Cannot  
+6F 70 65 6E 20 6F 75 74 70 75 74 20 66 69 6C 65   open output file 
+0A 00 54 6F 6F 20 6D 61 6E 79 20 70 61 72 61 6D   ..Too many param 
+65 74 65 72 73 0A 00 4E 6F 20 69 6E 70 75 74 20   eters..No input  
+66 69 6C 65 20 73 70 65 63 69 66 69 65 64 2E 2E   file specified.. 
+2E 00 4F 62 6A 65 63 74 20 4D 6F 64 75 6C 65 20   ..Object Module  
+52 65 61 64 65 72 20 56 31 2E 30 0D 0A 00 0D 0A   Reader V1.0..... 
+00 52 48 45 41 44 52 20 20 20 00 0D 0A 00 52 45   .RHEADR   ....RE 
+47 49 4E 54 20 20 20 00 0D 0A 00 52 45 44 41 54   GINT   ....REDAT 
+41 20 20 20 00 0D 0A 00 52 49 44 41 54 41 20 20   A   ....RIDATA   
+20 00 0D 0A 00 4F 56 4C 44 45 46 20 20 20 00 0D    ....OVLDEF   .. 
+0A 00 45 4E 44 52 45 43 20 20 20 00 0D 0A 00 42   ..ENDREC   ....B 
+4C 4B 44 45 46 20 20 20 00 0D 0A 00 42 4C 4B 45   LKDEF   ....BLKE 
+4E 44 20 20 20 00 0D 0A 00 44 45 42 53 59 4D 20   ND   ....DEBSYM  
+20 20 00 0D 0A 00 54 48 45 41 44 52 20 20 20 00     ....THEADR   . 
+0D 0A 00 4C 48 45 41 44 52 20 20 20 00 0D 0A 00   ...LHEADR   .... 
+50 45 44 41 54 41 20 20 20 00 0D 0A 00 50 49 44   PEDATA   ....PID 
+41 54 41 20 20 20 00 0D 0A 00 43 4F 4D 45 4E 54   ATA   ....COMENT 
+20 20 20 00 0D 0A 00 4D 4F 44 45 4E 44 20 20 20      ....MODEND    
+00 45 58 54 44 45 46 20 20 20 00 0D 0A 00 54 59   .EXTDEF   ....TY 
+50 44 45 46 20 20 20 00 0D 0A 00 50 55 42 44 45   PDEF   ....PUBDE 
+46 20 20 20 00 0D 0A 00 50 55 42 44 45 46 33 32   F   ....PUBDEF32 
+20 00 0D 0A 00 4C 4F 43 53 59 4D 20 20 20 00 0D    ....LOCSYM   .. 
+0A 00 4C 49 4E 4E 55 4D 20 20 20 00 0D 0A 00 4C   ..LINNUM   ....L 
+4E 41 4D 45 53 20 20 20 00 0D 0A 00 53 45 47 44   NAMES   ....SEGD 
+45 46 20 20 20 00 0D 0A 00 53 45 47 44 45 46 33   EF   ....SEGDEF3 
+32 20 00 0D 0A 00 47 52 50 44 45 46 20 20 20 00   2 ....GRPDEF   . 
+0D 0A 00 46 49 58 55 50 50 20 20 20 00 0D 0A 00   ...FIXUPP   .... 
+46 49 58 55 50 50 33 32 20 00 0D 0A 00 0D 0A 00   FIXUPP32 ....... 
+4C 45 44 41 54 41 20 20 20 00 0D 0A 00 4C 45 44   LEDATA   ....LED 
+41 54 41 33 32 20 00 0D 0A 00 4C 49 44 41 54 41   ATA32 ....LIDATA 
+20 20 20 00 0D 0A 00 4C 49 42 48 45 44 20 20 20      ....LIBHED    
+00 0D 0A 00 4C 49 42 4E 41 4D 20 20 20 00 0D 0A   ....LIBNAM   ... 
+00 4C 49 42 4C 4F 43 20 20 20 00 0D 0A 00 4C 49   .LIBLOC   ....LI 
+42 44 49 43 20 20 20 00 0D 0A 00 43 4F 4D 44 45   BDIC   ....COMDE 
+46 20 20 20 00 0D 0A 00 46 4F 52 52 45 46 20 20   F   ....FORREF   
+20 00 0D 0A 00 4D 4F 44 45 58 54 20 20 20 00 0D    ....MODEXT   .. 
+0A 00 4D 4F 44 50 55 42 20 20 20 00 0D 0A 00 0D   ..MODPUB   ..... 
+0A 00                                             ..               
+
+COMENT   00002495, size: 0011
+00 E8 01 09 72 65 61 64 6F 62 6A 2E 63 AF 4C 2A   ....readobj.c.L* 
+1E                                                .                
+
+MODEND   

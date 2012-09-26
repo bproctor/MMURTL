@@ -1,0 +1,19 @@
+This is the CM32 compiler ported to run under MMURTL.
+It has been modified to use MMURTL memory management
+calls directly.
+It produces the same assembly language code as its
+DOS counterpart.
+
+You will notice it runs much slower than the DOS version.
+This is for 2 reasons. The compiler was compiled with
+itself. In other words, the DOS version was used to compile
+the MMURTL version. It is hardly a "production" compiler.
+Its code generation is no competition for the likes of Borland.
+The second reason is that the processor is being shared with
+several other tasks that wake up and do things (such as
+display the time or tick count in the monitor).
+
+NOTE: For this compiler to work properly, the DOS version
+should be installed on the same disk. This is because the
+compiler looks in the \CM32\INCLUDE directory, just like
+the DOS version.

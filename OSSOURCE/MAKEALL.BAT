@@ -1,0 +1,9 @@
+CM32 JOBC.C /L
+CM32 UASM.c /L
+CM32 Monitor.c /L
+CM32 HardIDE.c /L
+CM32 Floppy.c /L
+CM32 FSYS.c /L
+CM32 RS232.c /L
+CM32 Parallel.c /L
+DASM MMURTL.ATF /E

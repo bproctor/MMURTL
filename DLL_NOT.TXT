@@ -1,0 +1,58 @@
+I still feel this way about DLLs 5 years later....
+----------------------------------------------------
+Hi Everyone,
+
+A persinal note from me about a topic dear to my heart...
+
+Over the years I've come to hate DLLs (Dynamic Link Libraries)
+in all environments (Windows, OS/2, etc.) and I never put 
+them into MMURTL even though I threatened to do it several times.
+I'm glad I didn't. Loadable services, and allowing
+the OS to swap as needed is really the way to go.
+
+People, the age of the 5 Megabyte Disk Drives is over, and
+memory is no problem either (other than my own gray matter). 
+And the thought that they aid in version management is a bad
+joke, at best.
+
+PLEASE help stamp out these horrible things. Their concept 
+is outdated, outmoded and foolish. 
+
+They should be outlawed - hunted down and killed immediately.
+They serve no real useful purpose except to ruin clean 
+installations and de-installations of otherwise good 
+software packages. They clutter your computer and confuse the 
+computer world in general.
+
+Next to disease and world hunger, DLLs are at the top of my
+list of things the world should actively work on eradicating.
+
+If a man in a dark blue suit and dark sunglasses comes up to you
+on the street and says:  "Hey there - How about a little DLL?"    
+
+JUST SAY NO!  JUST SAY NO WAY!!! 
+
+Please link your libraries into your executables (and only the code
+you really need). It's much cleaner, and if you keep your libraries
+tight and efficient, people will see your application load 
+faster than your competitors prodcuts and they will like it.
+You can let the operating system swap if needed - that is what
+it is supposed to do. You'll have a much faster application and a 
+much cleaner environment. TRUST ME... if we all pitch in we can get 
+RID of these menaces.
+
+If we're lucky, our grandchildren will look back in the
+computer history books and just laugh about them... 
+(and be thankful they don't have to deal with them)!
+
+Thank you for your support in this matter,
+Richard A. Burgess
+6/1/99
+
+
+P.S. As near as I can tell, DLLs have saved me a whopping 
+27 Megabytes on my 11 GIGABYTE disk drive - however, I've
+got another 43 megabytes of DLLs that I'm not sure I can delete.
+BUT - they don't seem to be in use... I think... maybe... maybe not,
+will I need them tomorrow??  Delete them?? A scary thought... 
+

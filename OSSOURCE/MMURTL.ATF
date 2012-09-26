@@ -1,0 +1,52 @@
+;   MMURTL Operating System Source Code
+;   Copyright 1991,1992,1993,1994 Richard A. Burgess
+;   ALL RIGHTS RESERVED   Version 1.0
+;
+; This is the DASM Assembler Template file for MMURTL v1.0
+; A total of 29 assembler files (some from C source) make
+; up the MMURTL OS Run file.  Four additional .INC files which
+; contain global Equates may also be included in some ASM files.
+;=============================================================================
+.DATA
+;These first 5 INCLUDES MUST be in this order!!!!
+
+.INCLUDE MOSIDT.ASM  	; Defines the Interrupt Descriptor Table
+.INCLUDE MOSGDT.ASM		; 6K for GDT @ 00000800h Physical (1.5 Pages, 6K)
+.INCLUDE MOSPDR.ASM		; OS Page Directory & 1st Table (8k)
+.INCLUDE MPublics.ASM	; Indirect calling address table
+.INCLUDE MAIN.ASM	 	; Main OS code and some data
+
+;=============================================================================
+; Ordering for the remainder of the modules is not as important.
+; An asterisk (*) by the include file indicates it originates as
+; a C source file and must be compiled first with
+; CM32 (no switches needed).
+;
+.INCLUDE Keyboard.ASM	;  Keyboard ISR and Service
+.INCLUDE Video.ASM		;  Video code and data
+.INCLUDE Debugger.ASM	;  Code & Data for Debugger
+.INCLUDE UASM.ASM		;* Code & Data for Debugger Disassembler
+.INCLUDE DevDrvr.ASM	;  Code and Data for Device Driver Interface
+.INCLUDE Floppy.ASM		;* Floppy Device Driver
+.INCLUDE HardIDE.ASM	;* IDE Disk Device Driver
+.INCLUDE RS232.ASM		;* Serial Comms Device Driver
+.INCLUDE Parallel.ASM	;* Parallel LPT Device Driver (RAB)
+.INCLUDE FSys.ASM		;* File System Service
+.INCLUDE JobCode.ASM	;  Additional Job management
+.INCLUDE JOBC.ASM		;* Loader/Job handling Code & Data
+.INCLUDE TmrCode.ASM	;  Timer Code
+.INCLUDE IntCode.ASM	;  ISR handling code
+.INCLUDE RQBCode.ASM	;  Request Block Code
+.INCLUDE DMACode.ASM	;  DMA Handling Code
+.INCLUDE NumCnvrt.ASM	;  Maybe Move to DLL later or can it
+.INCLUDE MemCode.ASM	;  Memory management code
+.INCLUDE SVCCode.ASM	;  System Service management code
+.INCLUDE MiscCode.ASM	;  Misc. code (string,array,I/O support)
+.INCLUDE Kernel.ASM		;  Kernel code
+.INCLUDE Except.ASM		;  Exception handlers
+.INCLUDE InitCode.ASM	;  Initialization support code
+.INCLUDE Monitor.ASM	;* The monitor code & data
+;=============================================================================
+;=============================================================================
+.END
+;End of OS Assembler Template file

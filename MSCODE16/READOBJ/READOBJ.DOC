@@ -1,0 +1,189 @@
+Object Module Reader V1.0
+(Q & A)
+(c) 1992 R.A. Burgess
+
+------------------------------------------------------------------
+
+Q.  What is the Object Module Reader??
+
+A.  The Object Module Reader breaks out all the records in an Intel
+"object module" so they so they can be anaylzed.  It breaks them 
+out in "raw" form which is a hexidecimal dump format, or it expands 
+some of the records and fields for more information.
+
+Q.  What can you use if for?
+
+A.  People that are interested in the format or content of
+object modules from Intel based assemblers and compilers can use this
+to analyze each of the records.  It also provides insight into
+tools such as linkers and object module librarians.
+
+Q.  OK, so what.  What are object modules anyway??
+
+A.  A programmer writes a program.  This program is in a "source"
+language such as Assembler, C or Pascal.  Most assemblers and compilers
+turn the source language into sections of machine code the processor
+can execute or data the processor can manipulate called Object Records.
+
+The machine code and data are broken into these records that can be stored
+in libraries or combined to make executable programs.
+
+A single group of these records is produced from each source file and
+is called an Object Module.  Each record inside an object module is
+further divided into fields that describe the code or data associated
+with that particular record.
+
+Q.  Ok, this make sense so far. But what are these records and what do they
+describe?
+
+A.  Some of the records contain machine code and data that will be
+placed in the executable program file, while others contain information
+to tell the linker where and how to combine the code and data records
+with other object module records.
+
+Q.  So, do they just throw these records in the object module file any old
+way, or is there a method to their madness???
+
+A.  There is definately a method to their madness...  Back in prehistoric
+microcomputer times (1979), when Intel was building their now
+famous 8086 processor, they designed the Object Module formats for the
+80x86 series of processors and language tools.  All versions (that I
+have run across) of the 80x86 object modules are based on this design
+which was documented in a book called 8086 Relocatable Object Module Formats
+(which, incidently, is still available from Intel in it's original 1981 form).
+
+Some additions beyond those documented in the Intel manual were required
+when the 32 bit processors were introduced.  These additions can be found
+in object modules that are generated from IBM's CSet/2 32 bit compiler
+for OS/2 (v2.x) and also from other compilers and assemblers that produce 32
+bit code. Borland's Turbo assembler with the /3 option and MASM generate
+additional record types also).  See "Object Module Record Descriptions"
+following the Q & A portion of this manual.  Most (if not all) of the earlier
+language and programming tool vendors followed the format very closely. This
+is NOT the case with some vendors later extensions (mostly 32 bit).
+
+Q.  Can this thing take apart object module "libraries?"
+
+A.  No, you should get a cross reference listing using your librarian
+and extract the module you are interested in, then run ReadObj against
+it.
+
+Q. OK, now that I know all this, how do I execute the Object Module Reader?
+
+A.  The Object Module Reader is a single executable file (DOS or OS/2)
+and has two command line parameters and one switch.  The paramters are
+INPUT FILE (your object module filename), and OUTPUT FILE (the text file
+that the data is put into).  The single switch is /R for RAW data only.
+Normally, the object module reader gives you as much data as possible
+from the object module, which means it breaks out some of the more confusing
+fields from the records.  The /R option forces it to present only the
+record type, offset in the obj file, the size, and the records data (hex dump).
+
+Example of the command line:
+
+C:\> ReadObj MyBad.Obj MyBad.txt /R
+
+This would take an object file named MyBad.Obj and put the text
+descriptions into a file called MyBad.txt in RAW form. If you leave
+off the /R it will expand some of fields in the records.
+If you do not specifiy an output file it will send the text data
+to the screen.
+
+To test it, try this:
+
+C:\mscode16\readobj> ReadObj ReadObj. Obj  Obj.txt
+
+then edit Obj.TXT
+
+----------------------------------------------------------------
+Sample Object Module Record Descriptions
+
+The following section contains a description of a few of the most
+commonly found Object Module Records. Some are all but obsolete.
+The Intel publication should be purchased if you're really interested.
+
+Each of the record types found in an object module is described
+as a record (pseudo language).  Several of the field types use
+simple names to describe the types.  They are as follows:
+
+LString		A string of characters preceeded by a single byte which
+			contains the length of characters in this string.
+
+Byte		An 8 bit unsigned value
+
+Word		A 16 bit unsigned value
+
+DWord		A 32 bit unsigned value
+
+BitField	One or more bits in a byte that have a special meaning
+
+RecID		A single byte which is the first byte in a record that
+			identifies it's type.
+
+CheckSum	1 single byte containing all the bytes in the record
+			added up modulo 128 (less the Record ID byte and Size Word)
+
+RecSize		A Word that has the size of the record minus the RecID,
+			RecSize, and Checksum.
+
+--------------------------
+Translator Header (THEADR)
+	This is the first record in an object module usually containing
+	the name of the source module that this object module was derived
+	from.
+
+Record
+	RecID			: 80h
+	RecSize			: Word
+	Name of Module	: LString
+	Checksum		: Byte
+End
+	Raw Data Example:
+	07 43 4F 4D 33 32 2E 43                           .COM32.C
+
+--------------------------
+Comment (COMENT)
+	The comment field contains comments and MORE.  It can be used
+	to list libraries that should be used, INLCUDE files used in
+	the source file and other non-comment
+	type things.  Different language vendors have added some
+	proprietary things that other language vendors don't use.
+	A REAL standard if ever I saw one...  BUT, as near as I can
+	tell it doesn't directly affect the actual code or data records 
+	contained elsewhere in the module.
+
+Record
+	RecID			: 88h
+	Size:			: Word
+	Comment Data	: Data (up to maximum record length)
+	Checksum		: Byte
+End
+	Raw Data Example:
+	40 9F 4F 53 32 33 38 36 2E 4C 49 42               @.OS2386.LIB
+
+--------------------------
+List of Names (LNAMES)
+	This lists the segment name(s) defined by the translator (assembler
+	or compiler). They are in LString format.
+
+Record
+	RecID:			: 96h
+	Size:			: Word
+	List:			: Zero or more LStrings
+	Checksum:		: Byte
+End
+	Raw Data Example:
+	04 43 4F 44 45 04 44 41 54 41 05 43 4F 4E 53 54   .CODE.DATA.CONST
+	03 42 53 53 06 43 4F 44 45 33 32 06 44 41 54 41   .BSS.CODE32.DATA
+	33 32 07 43 4F 4E 53 54 33 32 05 42 53 53 33 32   32.CONST32.BSS32
+	06 44 47 52 4F 55 50 04 46 4C 41 54 06 44 45 42   .DGROUP.FLAT.DEB
+	53 59 4D 09 24 24 53 59 4D 42 4F 4C 53 06 44 45   SYM.$$SYMBOLS.DE
+	42 54 59 50 07 24 24 54 59 50 45 53               BTYP.$$TYPES
+
+--------------------------
+Module End (MODEND)
+	This single byte signifies the end of the module.
+
+Record
+	RecID:			: 96h
+End

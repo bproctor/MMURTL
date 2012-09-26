@@ -1,0 +1,423 @@
+Turbo Assembler	 Version 3.1	    11/25/94 10:53:02	    Page 1
+Bootblok.ASM
+
+
+
+      1					 .386P
+      2					 ;This boot sector is STUFFed to the gills to do a single
+      3					 ;stage	boot of	the MMURTL OS which is about 150K stored as
+      4					 ;a loadable image beginning at	cluster	2 on the disk. The OS must
+      5					 ;be stored contiguously in each of the	following logical sectors.
+      6					 ;The actual number of sectors is stored in the	data param nOSSectors.
+      7
+      8	    0000			 CSEG	 SEGMENT WORD 'Code' USE16
+      9						 ASSUME	CS:CSEG, DS:CSEG, ES:Nothing
+     10
+     11					 ORG	 0h
+     12
+     13	    0000  EB 48				 JMP SHORT Bootup
+     14	    0002  90				 NOP					 ;To use 3 bytes which aligned data
+     15
+     16					 ;OS Herald, Partition info begins here
+     17
+     18	    0003  4D 55	52 54 4C 31 2E+	 Herald		 DB   'MURTL1.0'
+     19		  30
+     20	    000B  0200			 nBytesPerSect	 DW   0200h		 ;nBytes/Sector
+     21	    000D  01			 nSectPerClstr	 DB   01h		 ;Sect/Cluster
+     22	    000E  0001			 nRsvdSect	 DW   0001h		 ;Resvd	sectors
+     23	    0010  02			 nFATS		 DB   02		 ;nFATs
+     24	    0011  00E0			 nRootDirEnts	 DW   00E0h		 ;Root Dir entries max
+     25	    0013  0B40			 nTotalSectors	 DW   0B40h		 ;nTotal Sectors (0 = <32Mb)
+     26	    0015  F0			 bMedia		 DB   0F0h		 ;media	desc. (worthless)
+     27	    0016  0009			 nSectPerFAT	 DW   0009h		 ;nSect	in FAT
+     28	    0018  0012			 nSectPerTrack	 DW   0012h		 ;nSectors/track
+     29	    001A  0002			 nHeads		 DW   0002h		 ;nHeads
+     30	    001C  00000000		 nHidden	 DD   00000000h	 ;nHidden Sectors (first whole track on	HD)
+     31	    0020  00000000		 nTotalSect32	 DD   00000000h	 ;nTotalSectors	if > 32Mb
+     32
+     33	    0024  00			 bBootDrive		 DB   00h		 ;Drive	boot sector came from
+     34
+     35	    0025  00			 ResvdByte	 DB   00h		 ;Used for temp	storage	of Sector to Read
+     36
+     37	    0026  29			 ExtBootSig	 DB   29h		 ; Ext Boot Signature (always 29h)
+     38	    0027  0140			 nOSSectors		 DW   0140h	 ; (140	sectors	max) Was Volume	ID number
+     39	    0029  0000			 ResvdWord		 DW   0000h
+     40	    002B  52 49	43 48 20 20 20+	 Volname		 DB   'RICH	  '	 ;11 bytes for volume name
+     41		  20 20	20 20
+     42	    0036  46 41	54 31 32 20 20+	 FatType		 DB   'FAT12   '	 ;8 bytes for FAT name (Type)
+     43		  20
+     44
+     45	    003E  07FF			 IDTptr		 DW 7FFh		 ;LIMIT	256 IDT	Slots
+     46	    0040  00000000				     DD	0000h		     ;BASE (Linear)
+     47
+     48	    0044  17FF			 GDTptr		 DW 17FFh		 ;LIMIT	768 slots
+     49	    0046  00000800				 DD 0800h		 ;BASE (Linear)
+     50
+     51					 ;Herald and partiton info ends	here
+     52
+     53	    004A			 BootUp:
+     54
+     55					 ;Boot blocks first instruction	starts here after initial jump from beginning
+     56	    004A  FA			     CLI				 ;Clear	interrupts
+     57
+Turbo Assembler	 Version 3.1	    11/25/94 10:53:02	    Page 2
+Bootblok.ASM
+
+
+
+     58						 ;Stick	the stack at 98000h
+     59
+     60	    004B  B8 9000		     MOV  AX,9000h
+     61	    004E  8E D0			     MOV  SS, AX
+     62	    0050  BC 8000			 MOV  SP, 8000h
+     63
+     64					 ;Move this boot sector	UP to 90000h Linear.
+     65
+     66	    0053  B8 9000			 MOV  AX, 09000h
+     67	    0056  8E C0				 MOV  ES, AX
+     68	    0058  33 FF				 XOR  DI, DI
+     69	    005A  B8 07C0			 MOV	  AX, 7C0h
+     70	    005D  8E D8				 MOV  DS, AX
+     71	    005F  33 F6				 XOR  SI, SI
+     72	    0061  B9 0200			 MOV  CX, 512
+     73	    0064  F3> A4		     REP  MOVSB
+     74
+     75						 ; Now we jump UP to where we moved it.
+     76
+     77	    0066  B8 9000			 MOV AX, 09000h		 ;Segment
+     78	    0069  50				 PUSH AX
+     79	    006A  B8 006F			 MOV AX, 6Fh			 ;Offset
+     80	    006D  50				 PUSH AX
+     81	    006E  CB				 RETF
+     82
+     83					 ; Now set DS equal to ES which	is 9000h
+     84	    006F  06				 PUSH ES
+     85	    0070  1F				 POP  DS
+     86	    0071  8B 0E	0018r			 MOV CX, nSectPerTrack
+     87
+     88	    0075  33 C0				 XOR AX, AX
+     89	    0077  8E D8				 MOV DS, AX
+     90	    0079  BB 0078		     MOV  BX, 0078h	    ;Int 1E FDC	Params!
+     91	    007C  C5 37			     LDS  SI, DS:[BX]
+     92
+     93	    007E  88 4C	04		     MOV  BYTE PTR [SI+4], CL
+     94	    0081  C6 44	09 0F			 MOV  BYTE PTR [SI+9], 0Fh
+     95
+     96	    0085  06				 PUSH ES
+     97	    0086  1F				 POP DS
+     98	    0087  1E				 PUSH DS
+     99
+    100	    0088  FB			     STI
+    101
+    102	    0089  8A 16	0024r			 MOV DL, bBootDrive		 ;Required for Disk System Reset
+    103	    008D  33 C0				 XOR AX, AX
+    104
+    105	    008F  CD 13			     INT  13h				 ;Reset	Disk Controller	(DL has	drive num)
+    106	    0091  72 33			     JC	  SHORT	BadBoot		 ;Reset	failed...
+    107
+    108	    0093  1F				 POP DS
+    109
+    110					     ;The controller is	reset, now let's read some stuff!!
+    111						 ;We are gonna skip checking to	see if the first file
+    112						 ;really IS the	OS. We need the	space for other	code.
+    113
+    114	    0094  BE 01EBr		     MOV  SI, OFFSET MsgLoad
+Turbo Assembler	 Version 3.1	    11/25/94 10:53:02	    Page 3
+Bootblok.ASM
+
+
+
+    115	    0097  E8 0038		     CALL PutChars
+    116
+    117						 ;What we do now is calcualte our way to the third cluster
+    118						 ;on the disk and read in the total number of OS sectors in
+    119						 ;logical sector order.	(3rd cluster is	really the first allocated
+    120						 ; cluster because first 2 are unused).
+    121						 ;The layout of	the Disk is:
+    122						 ;	 Boot Sector (at logical sector	0)
+    123						 ;   Hidden Sectors (optional)
+    124						 ;	 FATS (1 or more)
+    125						 ;   Additional	Reserved sectors (optional)
+    126						 ;	 Root Directory	(n Sectors long)
+    127
+    128	    009A  33 C0				 XOR AX, AX
+    129	    009C  A0 0010r		     MOV  AL, nFATS
+    130	    009F  F7 26	0016r		     MUL  WORD PTR nSectPerFAT
+    131	    00A3  03 06	001Cr		     ADD  AX, WORD PTR nHidden	 ;
+    132	    00A7  13 16	001Er		     ADC  DX, WORD PTR nHidden+2
+    133	    00AB  03 06	000Er		     ADD  AX, nRsvdSect
+    134	    00AF  8B C8				 MOV  CX, AX				 ;Save in CX
+    135
+    136						 ;CX now has a Word that contains the sector of	the Root
+    137
+    138						 ;Calculate the	size of	the root directory and skip past it
+    139						 ;to the first allocated sectors (this is where	the OS or
+    140						 ;stage	one of the a two stage loader should be).
+    141
+    142	    00B1  B8 0020		     MOV  AX,0020h			 ;Size of Dir Entry
+    143	    00B4  F7 26	0011r		     MUL  WORD PTR nRootDirEnts
+    144	    00B8  8B 1E	000Br		     MOV  BX, nBytesPerSect
+    145	    00BC  F7 F3			     DIV  BX
+    146	    00BE  03 C1				 ADD  AX, CX
+    147
+    148						 ;AX is	at sector for cluster 0, but cluster 0 and 1 don't exist
+    149						 ;so we	are really at cluster 2	like we	want to	be.
+    150
+    151	    00C0  8B 0E	0027r		     MOV  CX, nOSSectors ;Number of OS sectors to read
+    152	    00C4  EB 1B				 JMP SHORT ContinueBoot
+    153
+    154					 ;Bad boot goes	here and displays a message then
+    155					 ;waits	for a key to reboot (or	tries to) via int 19h
+    156
+    157	    00C6			 BadBoot:
+    158	    00C6  BE 01DAr		     MOV  SI, OFFSET MsgBadDisk
+    159	    00C9  E8 0006		     CALL PutChars
+    160
+    161	    00CC  33 C0			     XOR  AX,AX
+    162	    00CE  CD 16			     INT  16h		 ;Wait for keystroke
+    163	    00D0  CD 19			     INT  19h	     ;Sys Reboot
+    164
+    165	    00D2			 PutChars:
+    166	    00D2  AC			     LODSB
+    167	    00D3  0A C0			     OR	  AL,AL
+    168	    00D5  74 09			     JZ	  SHORT	Done
+    169	    00D7  B4 0E			     MOV  AH, 0Eh
+    170	    00D9  BB 0007		     MOV  BX,0007
+    171	    00DC  CD 10			     INT  10h
+Turbo Assembler	 Version 3.1	    11/25/94 10:53:02	    Page 4
+Bootblok.ASM
+
+
+
+    172	    00DE  EB F2			     JMP  SHORT	PutChars
+    173	    00E0			 Done:
+    174	    00E0  C3				 RETN
+    175
+    176	    00E1			 ContinueBoot:
+    177	    00E1  BB 6000		     MOV  BX, 06000h	;This is segment where we load the OS.
+    178	    00E4  8E C3			     MOV  ES, BX
+    179
+    180	    00E6			 NextSector:
+    181	    00E6  50			     PUSH AX
+    182	    00E7  51			     PUSH CX
+    183	    00E8  52			     PUSH DX
+    184	    00E9  06				 PUSH ES
+    185
+    186	    00EA  33 DB				 XOR BX, BX
+    187
+    188					 ; Read	a logical sector to ES:BX
+    189					 ; AX has Logical Sector Number
+    190					 ;
+    191	    00EC  8B 36	0018r			 MOV  SI, nSectPerTrack
+    192	    00F0  F7 F6			     DIV  SI					 ;Divide LogicalSect by	nSectPerTrack
+    193	    00F2  FE C2			     INC  DL					 ;Sector numbering begins at 1 (not 0)
+    194	    00F4  88 16	0025r		     MOV  ResvdByte, DL			 ;Sector to read
+    195	    00F8  33 D2			     XOR  DX, DX			 ;Logical Track	left in	AX
+    196	    00FA  F7 36	001Ar		     DIV  WORD PTR nHeads	 ;Leaves Head in DL, Cyl in AX
+    197	    00FE  8A 36	0024r			 MOV  DH, bBootDrive
+    198	    0102  86 D6				 XCHG DL, DH				 ;Head to DH, Drive to DL
+    199	    0104  8B C8				 MOV  CX, AX				 ;Cyl into CX
+    200	    0106  86 CD				 XCHG CL, CH				 ;Low 8	bits of	Cyl to CH, Hi 2	bits to	CL
+    201	    0108  C0 E1	06			 SHL  CL, 6				 ;  shifted to bits 6 and 7
+    202	    010B  0A 0E	0025r			 OR   CL, BYTE PTR ResvdByte	 ;OR with Sector number
+    203	    010F  B0 01				 MOV  AL, 1				 ;Number of sectors
+    204	    0111  B4 02			     MOV  AH, 2				 ;Read
+    205	    0113  CD 13			     INT  13h				 ;Read that sucker!
+    206	    0115  72 AF			     JC	  SHORT	BadBoot
+    207
+    208	    0117  BE 01FCr		     MOV  SI, OFFSET MsgDot
+    209	    011A  E8 FFB5		     CALL PutChars
+    210
+    211	    011D  07			     POP  ES
+    212	    011E  5A			     POP  DX
+    213	    011F  59			     POP  CX
+    214	    0120  58			     POP  AX
+    215
+    216	    0121  8C C3				 MOV  BX, ES
+    217	    0123  83 C3	20			 ADD  BX, 20h	 ;512 bytes for	segment
+    218	    0126  8E C3				 MOV  ES, BX
+    219	    0128  40				 INC  AX		 ;Next Sector
+    220	    0129  E2 BB			     LOOP NextSector
+    221
+    222						 ;At this point	we have	the OS loaded in a contigous section
+    223						 ;from 60000 linear up to about	80000 linear.
+    224						 ;Now we disable interrupts, turn on the A20 line, move
+    225						 ;it down to address 0,	set protected mode and JUMP!
+    226
+    227	    012B  FA				 CLI
+    228	    012C  33 C9				 XOR CX,CX
+Turbo Assembler	 Version 3.1	    11/25/94 10:53:02	    Page 5
+Bootblok.ASM
+
+
+
+    229	    012E			 IBEmm0:
+    230	    012E  E4 64				 IN AL,64h
+    231	    0130  A8 02				 TEST AL,02h
+    232	    0132  E0 FA				 LOOPNZ	IBEmm0
+    233	    0134  B0 D1				 MOV AL,0D1h
+    234	    0136  E6 64				 OUT 64h,AL
+    235	    0138  33 C9				 XOR CX,CX
+    236	    013A			 IBEmm1:
+    237	    013A  E4 64				 IN AL,64h
+    238	    013C  A8 02				 TEST AL,02h
+    239	    013E  E0 FA				 LOOPNZ	IBEmm1
+    240	    0140  B0 DF				 MOV AL,0DFh
+    241	    0142  E6 60				 OUT 60h,AL
+    242	    0144  33 C9				 XOR CX,CX
+    243	    0146			 IBEmm2:
+    244	    0146  E4 64				 IN AL,64h
+    245	    0148  A8 02				 TEST AL,02h
+    246	    014A  E0 FA				 LOOPNZ	IBEmm2
+    247
+    248						 ;A20 line should be ON	Now
+    249						 ;So move the OS
+    250
+    251						 ; Set up our new DS to	where we moved the data
+    252						 ; We must do this before each 32K load	cause we use DS	*/
+    253
+    254	    014C  BA 8000			 MOV DX, 8000h
+    255
+    256						 ; Move	64K data chunk from linear 60000h to linear 0
+    257
+    258	    014F  BB 6000			 MOV BX, 06000h
+    259	    0152  8E DB				 MOV DS, BX
+    260	    0154  33 F6				 XOR SI, SI
+    261	    0156  33 C0				 XOR AX, AX
+    262	    0158  8E C0				 MOV ES,AX
+    263	    015A  33 FF				 XOR DI,DI
+    264	    015C  8B CA				 MOV CX, DX
+    265	    015E  FC				 CLD			 ;
+    266	    015F  F3> A5			 REP MOVSW				 ;WORD move
+    267
+    268						 ; Move	first 64K code chunk from linear 70000h	to 10000h
+    269
+    270	    0161  BB 7000			 MOV BX, 07000h
+    271	    0164  8E DB				 MOV DS, BX
+    272	    0166  33 F6				 XOR SI, SI
+    273	    0168  B8 1000			 MOV AX,1000h
+    274	    016B  8E C0				 MOV ES,AX
+    275	    016D  33 FF				 XOR DI,DI
+    276	    016F  8B CA				 MOV CX, DX
+    277	    0171  F3> A5			 REP MOVSW				 ;WORD move
+    278
+    279						 ; Move	last code (32K)	from linear 80000h to 18000h
+    280
+    281	    0173  8E DA				 MOV DS, DX				 ;DX is	8000h anyway
+    282	    0175  33 F6				 XOR SI, SI
+    283	    0177  B8 2000			 MOV AX,2000h
+    284	    017A  8E C0				 MOV ES,AX
+    285	    017C  33 FF				 XOR DI,DI
+Turbo Assembler	 Version 3.1	    11/25/94 10:53:02	    Page 6
+Bootblok.ASM
+
+
+
+    286	    017E  8B CA				 MOV CX, DX
+    287	    0180  F3> A4			 REP MOVSB				 ;BYTE move
+    288
+    289	    0182  BB 9000			 MOV BX, 9000h
+    290	    0185  8E DB				 MOV DS, BX
+    291
+    292	    0187  66| 33 D2			 XOR EDX, EDX
+    293	    018A  8A 16	0024r			 MOV DL, bBootDrive		 ;OS can find bootdrive	in DL on entry
+    294
+    295	    018E  0F 01	1E 003Er		 LIDT FWORD PTR	IDTptr
+    296	    0193  0F 01	16 0044r		 LGDT FWORD PTR	GDTptr
+    297
+    298	    0198  0F 20	C0			 MOV EAX,CR0
+    299	    019B  0C 01				 OR AL,1
+    300	    019D  0F 22	C0			 MOV CR0,EAX
+    301	    01A0  EB 00				 JMP $+2
+    302	    01A2  90				 NOP
+    303	    01A3  90				 NOP
+    304
+    305	    01A4  BB 0010		     MOV BX, 10h
+    306	    01A7  8E DB				 MOV DS,BX
+    307	    01A9  8E C3				 MOV ES,BX
+    308	    01AB  8E E3				 MOV FS,BX
+    309	    01AD  8E EB				 MOV GS,BX
+    310	    01AF  8E D3				 MOV SS,BX
+    311
+    312						 ;We define a far jump with 46 bit pointer manually
+    313
+    314	    01B1  66				 DB 66h
+    315	    01B2  67				 DB 67h
+    316	    01B3  EA				 DB 0EAh
+    317	    01B4  00010000			 DD 10000h
+    318	    01B8  0008				 DW 8h
+    319
+    320	    01BA  20 20	20 20 20 20 20+	 MsgNone     DB	'				 '
+    321		  20 20	20 20 20 20 20+
+    322		  20 20	20 20 20 20 20+
+    323		  20 20	20 20 20 20 20+
+    324		  20 20	20 20
+    325	    01DA  0D 0A	42 61 64 20 42+	 MsgBadDisk  DB	0Dh, 0Ah, 'Bad Boot Disk!', 00h
+    326		  6F 6F	74 20 44 69 73+
+    327		  6B 21	00
+    328	    01EB  0D 0A	4C 6F 61 64 69+	 MsgLoad     DB	0Dh, 0Ah, 'Loading MMURTL', 00h
+    329		  6E 67	20 4D 4D 55 52+
+    330		  54 4C	00
+    331	    01FC  2E 00			 MsgDot	     DB	'.', 00h
+    332
+    333	    01FE  AA5F			 BootSig   DW 0AA5Fh
+    334
+    335	    0200			 CSEG	 ENDS
+    336						 END
+Turbo Assembler	 Version 3.1	    11/25/94 10:53:02	    Page 7
+Symbol Table
+
+
+
+
+Symbol Name			  Type	 Value
+
+??DATE				  Text	 "11/25/94"
+??FILENAME			  Text	 "Bootblok"
+??TIME				  Text	 "10:53:02"
+??VERSION			  Number 030A
+@CPU				  Text	 0F8FH
+@CURSEG				  Text	 CSEG
+@FILENAME			  Text	 BOOTBLOK
+@WORDSIZE			  Text	 2
+BADBOOT				  Near	 CSEG:00C6
+BBOOTDRIVE			  Byte	 CSEG:0024
+BMEDIA				  Byte	 CSEG:0015
+BOOTSIG				  Word	 CSEG:01FE
+BOOTUP				  Near	 CSEG:004A
+CONTINUEBOOT			  Near	 CSEG:00E1
+DONE				  Near	 CSEG:00E0
+EXTBOOTSIG			  Byte	 CSEG:0026
+FATTYPE				  Byte	 CSEG:0036
+GDTPTR				  Word	 CSEG:0044
+HERALD				  Byte	 CSEG:0003
+IBEMM0				  Near	 CSEG:012E
+IBEMM1				  Near	 CSEG:013A
+IBEMM2				  Near	 CSEG:0146
+IDTPTR				  Word	 CSEG:003E
+MSGBADDISK			  Byte	 CSEG:01DA
+MSGDOT				  Byte	 CSEG:01FC
+MSGLOAD				  Byte	 CSEG:01EB
+MSGNONE				  Byte	 CSEG:01BA
+NBYTESPERSECT			  Word	 CSEG:000B
+NEXTSECTOR			  Near	 CSEG:00E6
+NFATS				  Byte	 CSEG:0010
+NHEADS				  Word	 CSEG:001A
+NHIDDEN				  Dword	 CSEG:001C
+NOSSECTORS			  Word	 CSEG:0027
+NROOTDIRENTS			  Word	 CSEG:0011
+NRSVDSECT			  Word	 CSEG:000E
+NSECTPERCLSTR			  Byte	 CSEG:000D
+NSECTPERFAT			  Word	 CSEG:0016
+NSECTPERTRACK			  Word	 CSEG:0018
+NTOTALSECT32			  Dword	 CSEG:0020
+NTOTALSECTORS			  Word	 CSEG:0013
+PUTCHARS			  Near	 CSEG:00D2
+RESVDBYTE			  Byte	 CSEG:0025
+RESVDWORD			  Word	 CSEG:0029
+VOLNAME				  Byte	 CSEG:002B
+
+Groups & Segments		  Bit Size Align  Combine Class
+
+CSEG				  16  0200 Word	  none	  CODE
+

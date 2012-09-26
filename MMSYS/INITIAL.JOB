@@ -1,0 +1,14 @@
+;INITIAL.JOB  - This is the initial jobs file.
+;You may list the jobs that you wanted executed upon
+;system boot in this file. One run file name per line,
+;no spaces in front of the name and a proper end-of-line
+;after each entry. Any spaces, tabs or comments after
+;the run file name are ignored. No parameters are passed
+;to the run file. The file name must contain the FULL
+;file name including path. (e.g., Drive:\DIR\NAME.RUN)
+;Comment lines begin with a semi-colon
+;Maximum line length is 80 characters total.
+;
+;C:\MSamples\Service\Service.run
+;C:\MMSYS\CLI.RUN    <---- this would be swtiched to after boot
+;End of file

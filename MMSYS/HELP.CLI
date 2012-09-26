@@ -1,0 +1,16 @@
+Internal CLI Commands:
+    Cls     - Clear Screen
+    Copy    - Copy Files  (From To)
+    Dir     - Directory listing
+    Debug   - Enter Debugger
+    Dump    - Hex dump of a file
+    Exit    - Exit and terminate CLI (return to Monitor)
+    Help    - Display this file
+    Monitor - Return to Monitor (leave this CLI running)
+    Path    - Set file access path (New path e.g. D:\DIR\)
+    Rename  - Rename a file (Current name  New name)
+    Run     - Execute a run file in this Job's context (Run file name)
+    Type    - Type the contents of text file to the screen (File name)
+
+Global Hot keys:  CTRL-ALT-PAGE DOWN - switch video/keyboard to next job.
+                  CTRL-ALT-DEL - Kill currently displayed Job.
