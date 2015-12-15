@@ -1,3 +1,5 @@
+; LOOK AT LINE# 1219
+
 ;   MMURTL Operating System Source Code
 ;   Copyright 1991,1992,1993,1994 Richard A. Burgess
 ;   ALL RIGHTS RESERVED   Version 1.0
@@ -15,7 +17,7 @@
 EXTRN rgTmrBlks DD
 EXTRN pJCBs 	DD
 EXTRN RdyQ  	DD
-EXTRN rgPAM  	DB
+
 
 ;debugger variables and buffers
 
@@ -1214,7 +1216,7 @@ DbgInfo:
 		MOV EAX, prgExch
 		CALL DispAddr
 		MOV ESI,OFFSET DbgPA	;PAM (Page Allocation map)
-		LEA EAX, rgPAM
+                MOV EAX, PAM		
 		CALL DispAddr
 		MOV ESI,OFFSET DbgMB	;Timer Blocks
 		LEA EAX, rgTmrBlks

@@ -112,46 +112,46 @@ MMURTL File System Initialization
 
 /* From MKernel */
 
-extern far AllocExch(long *pExchRet);
+extern far AllocExch(U32 *pExchRet);
 extern far U32 GetTSSExch(U32  *pExchRet);
 extern far SpawnTask(char *pEntry,
-		             long dPriority,
-                     long fDebug,
+		             U32 dPriority,
+                     U32 fDebug,
                      char *pStack,
-           		     long fOSCode);
-extern far long WaitMsg(long Exch, char *pMsgRet);
-extern far long CheckMsg(long Exch, char *pMsgRet);
-extern far long Request(unsigned char *pSvcName,
+           		     U32 fOSCode);
+extern far U32 WaitMsg(U32 Exch, char *pMsgRet);
+extern far U32 CheckMsg(U32 Exch, char *pMsgRet);
+extern far U32 Request(U8 *pSvcName,
 						unsigned int  wSvcCode,
-						unsigned long dRespExch,
-						unsigned long *pRqHndlRet,
-						unsigned long dnpSend,
-						unsigned char *pData1,
-						unsigned long dcbData1,
-						unsigned char *pData2,
-						unsigned long dcbData2,
-						unsigned long dData0,
-						unsigned long dData1,
-						unsigned long dData2);
+						U32 dRespExch,
+						U32 *pRqHndlRet,
+						U32 dnpSend,
+						U8 *pData1,
+						U32 dcbData1,
+						U8 *pData2,
+						U32 dcbData2,
+						U32 dData0,
+						U32 dData1,
+						U32 dData2);
 
-extern far long Respond(long dRqHndl, long dStatRet);
+extern far U32 Respond(U32 dRqHndl, U32 dStatRet);
 
 /* From MData */
 extern far void CopyData(U8 *pSource, U8 *pDestination, U32 dBytes);
 extern far void FillData(U8 *pDest, U32 cBytes, U8 bFill);
-extern far long CompareNCS(U8 *pS1, U8 *pS2, U32 dSize);
+extern far U32 CompareNCS(U8 *pS1, U8 *pS2, U32 dSize);
 
 /* From MTimer.h */
-extern far long GetCMOSTime(long *pTimeRet);
-extern far long GetCMOSDate(long *pTimeRet);
-extern far long GetTimerTick(long *pTickRet);
+extern far U32 GetCMOSTime(U32 *pTimeRet);
+extern far U32 GetCMOSDate(U32 *pTimeRet);
+extern far U32 GetTimerTick(U32 *pTickRet);
 
 /* From MVid.h */
 extern far long TTYOut (char *pTextOut, long ddTextOut, long ddAttrib);
 extern far long GetNormVid(long *pNormVidRet);
 
-#include "MKbd.h"
-
+#include "c:\ossource\MKbd.h"
+#include "MVid.h"
 /* From MDevDrv */
 extern far U32  DeviceOp(U32  dDevice,
  		                 U32  dOpNum,
@@ -173,13 +173,19 @@ extern far U32 AllocOSPage(U32 nPages, U8 *ppMemRet);
 extern far U32 DeAllocPage(U8 *pOrigMem, U32 nPages);
 
 /* From MJob.h */
-extern far U32 GetPath(long JobNum, char *pPathRet, long *pdcbPathRet);
+extern far U32 GetPath(U32 JobNum, char *pPathRet, U32 *pdcbPathRet);
 extern far U32 RegisterSvc(S8 *pName, U32 Exch);
 
 /* NEAR support for debugging */
 
-extern long xprintf(char *fmt, ...);
-extern U32 Dump(unsigned char *pb, long cb);
+extern U32 xprintf(char *fmt, ...);
+extern U32 Dump(U8 *pb, U32 cb);
+extern far long SetVidOwner(long iJob);
+extern far long GetVidOwner(long *iJob);
+char line1 = "WARNING!! File status not checked.\r\n";
+char line2 = "Remove Directory? (y or n) ";
+extern far U8 ReadCMOS(U16 Address);
+
 
 /* File System error codes */
 
@@ -214,6 +220,11 @@ extern U32 Dump(unsigned char *pb, long cb);
 #define ErcNotSupported	 227	/* Not supported on this file  */
 #define ErcRootFull		 228	/* The Root Directory is Full  */
 #define ErcDiskFull		 230	/* No more free CLUSTERS!!!  */
+#define ErcDirNotEmpty   233    /* Directory is not empty */
+#define ErcDeleteAbort   234    /* Directory delete aborted */
+#define ErcFnameDeleted  235    /* Directory deleted */
+#define ErcDFNotFnd      236    /* Direc/File not found */
+#define ErcFnameRestored 237    /* Direc/File name restored */
 
 #define ErcNewMedia		 605	/* for floppy mounting from FDD */
 
@@ -516,36 +527,36 @@ struct fdstattype{
 
 static struct fdstattype  FDDevStat;
 
-static long FSysStack[512];	/* 2048 byte stack for Fsys task */
+static U32 FSysStack[512];	/* 2048 byte stack for Fsys task */
 
-static long FSysExch;
+static U32 FSysExch;
 
 struct reqtype {			/* 64 byte request block structure */
-	long ServiceExch;
-	long RespExch;
-	long RqOwnerJob;
-	long ServiceRoute;
+	U32 ServiceExch;
+	U32 RespExch;
+	U32 RqOwnerJob;
+	U32 ServiceRoute;
 	char *pRqHndlRet;
-	long dData0;
-	long dData1;
-	long dData2;
+	U32 dData0;
+	U32 dData1;
+	U32 dData2;
 	int  ServiceCode;
 	char npSend;
 	char npRecv;
 	char *pData1;
-	long cbData1;
+	U32 cbData1;
 	char *pData2;
-	long cbData2;
-	long RQBRsvd1;
-	long RQBRsvd2;
-	long RQBRsvd3;
+	U32 cbData2;
+	U32 RQBRsvd1;
+	U32 RQBRsvd2;
+	U32 RQBRsvd3;
 	};
 
 static struct reqtype *pRQB;
 
 static char *fsysname = "FILESYSM";
 
-static unsigned long keycode;			/* for testing */
+static U32 keycode;			/* for testing */
 
 /*========================== BEGIN CODE ============================*/
 
@@ -656,7 +667,7 @@ for (j=2; j<4; j++)
 
 /*
 	 Dump(&partab[0].fBootable, 64);
-	 ReadKbd(&keycode, 1);
+	 erc = ReadKbd(&keycode, 1);
 */
 
     if (partab[0].nSectorsTotal > 0) 
@@ -742,6 +753,9 @@ U32 erc, i;
 	if (!erc) 
 	{
 	  HDDevStat.nHead = PDrvs[2].nHeads;
+/*      HDDevStat.nHead = 16;  temp fix for error in boot sector!!! */
+                            /* use readcmos() to get it in general */
+      HDDevStat.nHead = ReadCMOS(0x1d); /* fix for 3 gig hard disk */
 	  HDDevStat.nSectors = PDrvs[2].nSecPerTrk;
       erc = DeviceInit(12, &HDDevStat, 64); /* Set up drive geometry */
     }
@@ -792,6 +806,8 @@ if (Ldrv[i].DevNum != 0xff)
        Ldrv[i].nRootDirEnt = fsb.RootDirEnts;	/* n Root dir entries */
        Ldrv[i].SecPerClstr = fsb.SecPerClstr;
        Ldrv[i].nHeads      = fsb.Heads;
+       if (i == 2)
+       Ldrv[i].nHeads = ReadCMOS(0x1d); /* fix for hard disk */
        Ldrv[i].nSecPerTrk  = fsb.SecPerTrack;
        Ldrv[i].sFAT        = fsb.SecPerFAT;		/* nSectors in a FAT */
        Ldrv[i].nFATS       = fsb.FATs;			/* number of FATs */
@@ -817,12 +833,13 @@ U16 DDate, DTime, w;
 
 	GetCMOSDate(&date);
 	GetCMOSTime(&time);
-	/* Do the date */
+	/* Do the date - this was wrong!! */
 	DDate = (((date >> 12) & 0x0f) * 10) + ((date >> 8) & 0x0f); /* day */
-	w = (((date >> 20) & 0x0f) * 10) + ((date>>16) & 0x0f) + 2;	 /* month */
-	DDate |= (w << 4);
+/*	xprintf("day = %d\r\n",DDate); */
+	w = (((date >> 20) & 0x0f) * 10) + ((date>>16) & 0x0f);	 /* month had +2 */
+	DDate |= (w << 5); /* was << 4 which is incorrect */
 	w = (((date >> 28) & 0x0f) * 10) + ((date >> 24)  & 0x0f); 	 /* year */
-	DDate |= (w + 1900 - 1980) << 9;
+	DDate |= (w - 108) << 9; /* was:	DDate |= (w + 1900 - 1980) << 9; */
 	/* Do the time */
 	DTime = (((((time >> 4) & 0x0f) * 10) + (time & 0x0f))/2);	/* secs/2 */
 	w = (((time >> 12) & 0x0f) * 10) + ((time >> 8) & 0x0f);
@@ -1632,7 +1649,7 @@ static U32 GetDirEnt(U8  *pName,
               U32 *poEntRet,
               U8  **pEntRet)
 {
-unsigned long sector, i, j, k, erc;
+U32 sector, i, j, k, erc;
 U8 fFound, fEnd, *pEnt, *pStart;
 U16 MaxClstr;
 
@@ -1716,7 +1733,7 @@ static U32 GetRootEnt(U8  *pName,
                U32 *poEntRet,
                U8  **pEntRet)
 {
-unsigned long i, j, k, erc;
+U32 i, j, k, erc;
 U8 fFound, fEnd, *pEnt, *pStart;
 
  i = Ldrv[Drive].LBARoot;
@@ -1773,12 +1790,12 @@ RAB -  This builds a full file specification from
 *********************************************/
 
 static void BuildSpec(char *pName,
-			   long cbName,
+			   U32 cbName,
 			   char *pDest,
-			   long *cbDestRet,
-			   long iJob)
+			   U32 *cbDestRet,
+			   U32 iJob)
 {
-long i;
+U32 i;
 char pathtmp[70];
 
  if ((cbName) && (pName) && (pName[1] == ':'))
@@ -1810,6 +1827,7 @@ char pathtmp[70];
 	}
  }
  *cbDestRet = i;
+return(0); /* return stmnt was missing (seemed to cause no trouble!!) */ 
 }
 
 
@@ -1826,7 +1844,7 @@ char pathtmp[70];
 
 static U32 ParseName(U8 *pName, U32 cbName, U32 iJob)
 {
-unsigned long i, j, k, erc;
+U32 i, j, k, erc;
 U8 c, *pPart;
 char Spec[70];
 U32 cbSpec;
@@ -1912,13 +1930,13 @@ return erc;
 ********************************************************/
 
 static U32 GetDirSectorM(char *pPath,
-				 long cbPath,
+				 U32 cbPath,
 				 char *pSectRet,
-				 long cbRetMax,
-				 long SectNum,
-				 long *LBARet,
+				 U32 cbRetMax,
+				 U32 SectNum,
+				 U32 *LBARet,
 				 U16  *ClstrRet,
-				 long iJob)
+				 U32 iJob)
 {
 U32 sector, i, j, k, erc, spc, level, iSect;
 U16 MaxClstr, Clstr, rClstr;
@@ -1975,7 +1993,10 @@ U8  fFound, *pEnt, Drive;
   {	/* while there are valid entries */
 	erc = DeviceOp(Ldrv[Drive].DevNum, 1, i++, 1, abRawSector);
 	if (erc)
+	{   
+	    xprintf("DeviceOp() failed, erc = %d\r\n",erc);
 		return(erc);
+	}
     pEnt = abRawSector;		/* Point to first entry */
 	for (k=0; k<16; k++) 
 	{
@@ -2903,7 +2924,7 @@ U8 fFound, *pMem, Drive;
     *pdHandleRet = iFUB;		/* File handle */
 	}
   }
-
+/* xprintf("making return from openfile()\r\n"); */
 return erc;
 
 }
@@ -2962,13 +2983,13 @@ U32 erc, iFCB, i;
 ********************************************************/
 
 static U32 CreateFileM(char *pName,
-				long cbName,
-				long attrib,
-				long iJob)
+				U32 cbName,
+				U32 attrib,
+				U32 iJob)
 {
-unsigned long dHandle, i, j, k, erc, LBA, spc;
+U32 dHandle, i, j, k, erc, LBA, spc;
 char Path[70];
-long cbPath;
+U32 cbPath;
 char filename[12];
 U16 CrntClstr, ClstrValue, iStart, DirClstr;
 U8 fFound, Drive, fDir;
@@ -3247,10 +3268,10 @@ U8 fFound, Drive, fDir;
  even if the Delete fails.
 ********************************************************/
 
-static U32 DeleteFileM(long *dHandle)
+static U32 DeleteFileM(U32 *dHandle)
 {
 U32 erc, iFCB, i;
-U16 iStart;
+/* U16 iStart; */
 U8 Drive;
 
 	erc = ValidateHandle(dHandle, &iFCB);
@@ -3265,7 +3286,8 @@ U8 Drive;
 	}
 	if (paFUB[dHandle]->fStream)
 		DeAllocPage(paFUB[dHandle]->pBuf, 1);	/* Free buffer */
-
+/* if a call is made to TruncClstrChain() we cannot UNDELETE the file!!! */
+/*
 	iStart = paFCB[iFCB]->StartClstr;
 	if (iStart) 
 	{
@@ -3273,7 +3295,7 @@ U8 Drive;
 		if (!erc)
 			erc = SetClstrValue(iStart, 0, Drive, &i);
 	}
-
+*/
 	paFCB[iFCB]->Name[0] = 0xE5;
 	UpdateDirEnt(iFCB);			/* ignore error */
 
@@ -3301,8 +3323,8 @@ U8 Drive;
  This is Rename File for the MMURTL FAT file system.
 ********************************************************/
 
-static U32 RenameFileM(char *pCrntName, long dcbCrntName,
-                char *pNewName, long dcbNewName, U32 iJob)
+static U32 RenameFileM(char *pCrntName, U32 dcbCrntName,
+                char *pNewName, U32 dcbNewName, U32 iJob)
 {
 U32 dHandle, erc, erc1, iFCB;
 
@@ -3337,9 +3359,9 @@ U32 dHandle, erc, erc1, iFCB;
  This is Create Directory for the MMURTL FAT file system.
 ********************************************************/
 
-static U32	CreateDirM(char *pPath, long cbPath, long iJob)
+static U32	CreateDirM(char *pPath, U32 cbPath, U32 iJob)
 {
-long erc;
+U32 erc;
 
   erc = CreateFileM(pPath, cbPath, DIRECTORY, iJob);
   return(erc);
@@ -3349,15 +3371,217 @@ long erc;
  This is Delete Directory for the MMURTL FAT file system.
 ********************************************************/
 
-static U32	DeleteDirM(char *pPath, long cbPath, long fAllFiles, long iJob)
+static U32	DeleteDirM(char *pPath, U32 cbPath, char *fAllFiles, U32 iJob)
 {
-	pPath = 0;
-	cbPath = 0;
-	fAllFiles = 0;
-	iJob = 0;
-}
+char Path[70];
+U32 i, j, k, erc, LBA;
+char filename[12];
+U32 cbPath0;
+U16 DirClstr; 
+U8 fFound, Drive, *pEnt;
+
+/*
+        SetVidOwner(iJob); 
+        xprintf("*fallfiles in deletedirm() = %d, %c\r\n",*fAllFiles,*fAllFiles);
+*/
+		BuildSpec(pPath, cbPath, Path, &cbPath, iJob);
+		erc = ParseName(Path, cbPath, iJob);
+		if (erc)
+			return(erc);
+
+		/* FDrive was set up on Parse */
+
+	  	Drive = FDrive - 0x41;			/* Make it 0-9 */
+
+		/* First we setup the filename from what was parsed out
+		during the Parse call. Then eliminate it from Path.
+		*/
 
 
+		CopyData(FileSpec[SpecDepth], filename, 11); /* filename of target direc */
+		filename[11] = 0; /* terminates name string */
+
+
+		/* Hack the filename from Path so we can search the
+		directory path properly. We do this by decrementing cbPath
+		until the char 0x5c = \ is found or cbpath = 0.
+		First save cbPath for later use. */
+		cbPath0 = cbPath;
+
+		while ((cbPath) && (Path[cbPath-1] != 0x5C)) 
+		{
+			cbPath--;
+		}
+
+		/* Each directory sector has 16 32 byte entries.
+		We will now walk thru each sector until we find one
+		that is a deleted or empty entry.
+		A deleted entry has E5h as its first character in the name.
+		An unused entry has 00h as its first character in the name.
+		*/
+		erc = 0;
+		fFound = 0;
+		i = 0;							/* i = sectornum */
+    
+		while ((!fFound) && (!erc)) 
+		{
+ 			erc = GetDirSectorM(Path, cbPath, abTmpSector,
+								512, i++, &LBA, &DirClstr, iJob);
+			if (!erc) 
+			{
+				k = 0;
+    	        pDirEnt = abTmpSector;
+				while (k<16) 
+				{
+				    if (CompareNCS(&(pDirEnt->Name[0]),&filename[0],11) == -1)
+				         {
+    	                	fFound = 1;
+        	            	break;
+        	              }
+					if (!pDirEnt->Name[0])
+					   return (ErcNoMatch);
+					pDirEnt += 32;
+                    ++k;					
+                  }
+			}
+        }	/* end of search for name */
+/* at this point we need to check to see if directory is empty.
+   If it is, set first letter of name[] to E5h and write the 
+   directory back to disk.  If it is not empty return erc = dirNotEmpty. */
+            pEnt = pDirEnt;
+            i = 0;
+			j = 0; /* cumulative count of non-deleted direc entries in target direc */
+         while (1)
+         {
+            erc = GetDirSectorM(Path, cbPath0, abRawSector,
+								512, i++, LBA, DirClstr, iJob);
+            if (erc)
+               return(erc);			
+			k = 0;
+    	        pDirEnt = abRawSector;
+				while (k<16) 
+				{
+					if (!pDirEnt->Name[0])
+					   break;
+					pDirEnt += 32;
+                    ++k;
+                    if (pDirEnt->Name[0] != 0xE5)
+                        ++j;	/* cumulative count of undeleted entries */				
+
+                 }
+				 if (!pDirEnt->Name[0])
+					   break;
+		} /* end forever loop */
+/* get here and the directory is empty, so put E5h in Name[0] and write
+   directory back to disk */
+          pDirEnt = pEnt;
+          if (j == 2)
+	          pDirEnt->Name[0] = 0xE5;
+          if ((j > 2) && (*fAllFiles == 48))
+                    return(ErcDirNotEmpty);
+/* get here we delete the entry, having been forewarned 
+   about file status check not being made */
+           pDirEnt->Name[0] = 0xE5;
+
+/* write the sector back to memory */
+		  erc = DeviceOp(Ldrv[Drive].DevNum, 2, LBA, 
+							1, abTmpSector); 
+          if (!erc)
+             return(ErcFnameDeleted);
+          else
+             return(erc);
+} /* end of deletedirm() */
+
+
+/*** UnDelete Directory/File ***********************************
+ This is UnDelete Directory/File for the MMURTL FAT file system.
+*****************************************************************/
+
+static U32	undeletem(char *pPath, U32 cbPath, U32 iJob)
+{
+char Path[70];
+U32 i, k, erc, LBA;
+char filename[12];
+U32 cbPath0;
+U16 DirClstr; 
+U8 fFound, Drive;
+char ltrsave[1];
+
+
+
+		BuildSpec(pPath, cbPath, Path, &cbPath, iJob);
+		erc = ParseName(Path, cbPath, iJob);
+		if (erc)
+			return(erc);
+
+		/* FDrive was set up on Parse */
+
+	  	Drive = FDrive - 0x41;			/* Make it 0-9 */
+
+		/* First we setup the filename from what was parsed out
+		during the Parse call. Then eliminate it from Path.
+		*/
+
+
+		CopyData(FileSpec[SpecDepth], filename, 11); /* filename of target direc */
+		filename[11] = 0; /* terminates name string */
+        ltrsave[0] = filename[0];
+        filename[0] = 0xE5;
+
+		/* Hack the filename from Path so we can search the
+		directory path properly. We do this by decrementing cbPath
+		until the char 0x5c = \ is found or cbpath = 0.
+		First save cbPath for later use. */
+		cbPath0 = cbPath;
+
+		while ((cbPath) && (Path[cbPath-1] != 0x5C)) 
+		{
+			cbPath--;
+		}
+
+		/* Each directory sector has 16 32 byte entries.
+		We will now walk thru each sector until we find one
+		that is a deleted or empty entry.
+		A deleted entry has E5h as its first character in the name.
+		An unused entry has 00h as its first character in the name.
+		*/
+		erc = 0;
+		fFound = 0;
+		i = 0;							/* i = sectornum */
+    
+		while ((!fFound) && (!erc)) 
+		{
+ 			erc = GetDirSectorM(Path, cbPath, abTmpSector,
+								512, i++, &LBA, &DirClstr, iJob);
+			if (!erc) 
+			{
+				k = 0;
+    	        pDirEnt = abTmpSector;
+				while (k<16) 
+				{
+				    if (CompareNCS(&(pDirEnt->Name[0]),&filename[0],11) == -1)
+				         {
+    	                	fFound = 1;
+        	            	break;
+        	              }
+					if (!pDirEnt->Name[0])
+					   return (ErcDFNotFnd);
+					pDirEnt += 32;
+                    ++k;					
+                  }
+			}
+        }	/* end of search for name */
+	       pDirEnt->Name[0] = ltrsave[0];
+/* write the sector back to memory */
+		  erc = DeviceOp(Ldrv[Drive].DevNum, 2, LBA, 
+							1, abTmpSector); 
+          if (!erc)
+             return(ErcFnameRestored);
+          else
+             return(erc);
+} /* end of undeletem() */
+
+        
 /*******************************************************
  This is the File system task. All file system requests
  end up here to be serviced.
@@ -3469,7 +3693,7 @@ while (1)
 		case 15 :		/* DeleteDirectory */
 			erc = DeleteDirM(pRQB->pData1,      /* pPath */
 			                 pRQB->cbData1,     /* cbPath */
-			                 pRQB->dData0,      /* fAllFiles */
+			                 pRQB->pData2,     /* pntr to fAllFiles */
 			                 pRQB->RqOwnerJob); /* JobNum */
 			break;
 		case 16 :		/* GetDirSector */
@@ -3481,7 +3705,16 @@ while (1)
 			                    &i,				   /* for LBARet */
 			                    &i16,			   /* for DirClstr */
 			                    pRQB->RqOwnerJob); /* JobNum   */
+             if (erc)
+                xprintf("erc on return from getdirsectoM() = %d\r\n",erc);
+             break;
+
+		case 17 :     	/* undelete */
+		    erc = undeletem(pRQB->pData1, 			/* pPath */
+		    				pRQB->cbData1,			/* cbpath */
+		    				pRQB->RqOwnerJob);		/* pSectRet */
 			break;
+
 		default :
 			erc = ErcBadSvcCode;
 			break;
@@ -3500,12 +3733,12 @@ while (1)
 *******************************************************************/
 
 U32 far _OpenFile(char *pFilename,
-			     long dcbFilename,
-				 long Mode,
-				 long Type,
-				 long *pdHandleRet)
+			     U32 dcbFilename,
+				 U32 Mode,
+				 U32 Type,
+				 U32 *pdHandleRet)
 {
-long erc, exch, rqhndl, i, msg[2];
+U32 erc, exch, rqhndl, i, msg[2];
 	if (dcbFilename == 3)
 	{
 		if (CompareNCS(pFilename, "NUL" , 3) == -1)
@@ -3544,9 +3777,9 @@ long erc, exch, rqhndl, i, msg[2];
 }
 
 /*************************************/
-U32 far _CloseFile(unsigned long dHandle)
+U32 far _CloseFile(U32 dHandle)
 {
-long erc, exch, rqhndl, i, msg[2];
+U32 erc, exch, rqhndl, i, msg[2];
 
 	if (dHandle < 3)
            return(0);
@@ -3568,13 +3801,13 @@ long erc, exch, rqhndl, i, msg[2];
 }
 
 /*************************************/
-U32 far _ReadBlock(long dHandle,
+U32 far _ReadBlock(U32 dHandle,
                   char *pDataRet,
-                  long nBlks,
-				  long dLFA,
-				  long *pdnBlksRet)
+                  U32 nBlks,
+				  U32 dLFA,
+				  U32 *pdnBlksRet)
 {
-long erc, exch, rqhndl, msg[2], i;
+U32 erc, exch, rqhndl, msg[2], i;
 	if (dHandle < 4)
 		return(ErcNotSupported);
 	GetTSSExch(&exch);
@@ -3594,14 +3827,14 @@ long erc, exch, rqhndl, msg[2], i;
 }
 
 /*************************************/
-U32 far _WriteBlock(long dHandle,
+U32 far _WriteBlock(U32 dHandle,
                    char *pData,
-                   long nBlks,
-                   long dLFA,
-                   long *pdnBlksRet)
+                   U32 nBlks,
+                   U32 dLFA,
+                   U32 *pdnBlksRet)
 
 {
-long erc, exch, rqhndl, msg[2];
+U32 erc, exch, rqhndl, msg[2];
 	if (dHandle < 4)
 		return(ErcNotSupported);
 	GetTSSExch(&exch);
@@ -3616,12 +3849,12 @@ long erc, exch, rqhndl, msg[2];
 }
 
 /*************************************/
-U32 far _ReadBytes(long dHandle,
+U32 far _ReadBytes(U32 dHandle,
 				  char *pDataRet,
-				  long nBytes,
-				  long *pdnBytesRet)
+				  U32 nBytes,
+				  U32 *pdnBytesRet)
 {
-long erc, exch, rqhndl, msg[2], i;
+U32 erc, exch, rqhndl, msg[2], i;
 	if (dHandle == 0)
 	{
         *pdnBytesRet = 0;
@@ -3656,13 +3889,13 @@ long erc, exch, rqhndl, msg[2], i;
 }
 
 /*************************************/
-U32 far _WriteBytes(long dHandle,
+U32 far _WriteBytes(U32 dHandle,
                    char *pData,
-                   long nBytes,
-                   long *pdnBytesRet)
+                   U32 nBytes,
+                   U32 *pdnBytesRet)
 
 {
-long erc, exch, rqhndl, VidAttr, msg[2];
+U32 erc, exch, rqhndl, VidAttr, msg[2];
 
 	if (dHandle == 0) 
 	{
@@ -3699,11 +3932,11 @@ long erc, exch, rqhndl, VidAttr, msg[2];
 }
 
 /*************************************/
-U32 far	 _GetFileLFA(long dHandle,
-                    long *pdLFARet)
+U32 far	 _GetFileLFA(U32 dHandle,
+                    U32 *pdLFARet)
 
 {
-long erc, exch, rqhndl, msg[2];
+U32 erc, exch, rqhndl, msg[2];
 	if (dHandle < 4)
 		return(ErcEOF);
 
@@ -3719,10 +3952,10 @@ long erc, exch, rqhndl, msg[2];
 }
 
 /*************************************/
-U32 far _SetFileLFA(long dHandle,
-                   long dNewLFA)
+U32 far _SetFileLFA(U32 dHandle,
+                   U32 dNewLFA)
 {
-long erc, exch, rqhndl, msg[2];
+U32 erc, exch, rqhndl, msg[2];
 	if (dHandle < 4)
 		return(ErcNotSupported);
 	GetTSSExch(&exch);
@@ -3737,10 +3970,10 @@ long erc, exch, rqhndl, msg[2];
 }
 
 /*************************************/
-U32 far _GetFileSize(long dHandle,
-                    long *pdSizeRet)
+U32 far _GetFileSize(U32 dHandle,
+                    U32 *pdSizeRet)
 {
-long erc, exch, rqhndl, msg[2];
+U32 erc, exch, rqhndl, msg[2];
 	if (dHandle < 4)
 		return(ErcNotSupported);
 	GetTSSExch(&exch);
@@ -3755,10 +3988,10 @@ long erc, exch, rqhndl, msg[2];
 }
 
 /*************************************/
-U32 far _SetFileSize(long dHandle,
-                    long dSize)
+U32 far _SetFileSize(U32 dHandle,
+                    U32 dSize)
 {
-long erc, exch, rqhndl, msg[2];
+U32 erc, exch, rqhndl, msg[2];
 	if (dHandle < 4)
 		return(ErcNotSupported);
 	GetTSSExch(&exch);
@@ -3774,10 +4007,10 @@ long erc, exch, rqhndl, msg[2];
 
 /*************************************/
 U32 far _CreateFile(char *pFilename,
-				   long cbFilename,
-				   long Attribute)
+				   U32 cbFilename,
+				   U32 Attribute)
 {
-long erc, exch, rqhndl, msg[2];
+U32 erc, exch, rqhndl, msg[2];
 	GetTSSExch(&exch);
     erc = Request(fsysname, 11, exch, &rqhndl,
                    1,  							/* 1 Send ptrs */
@@ -3791,11 +4024,11 @@ long erc, exch, rqhndl, msg[2];
 
 /*************************************/
 U32 far _RenameFile(char *pCrntName,
-				   long cbCrntName,
+				   U32 cbCrntName,
 				   char *pNewName,
-				   long cbNewName)
+				   U32 cbNewName)
 {
-long erc, exch, rqhndl, msg[2];
+U32 erc, exch, rqhndl, msg[2];
 	GetTSSExch(&exch);
     erc = Request(fsysname, 12, exch, &rqhndl,
                    2,  							/* 2 Send ptrs */
@@ -3808,9 +4041,9 @@ long erc, exch, rqhndl, msg[2];
 }
 
 /*************************************/
-U32 far _DeleteFile(long dHandle)
+U32 far _DeleteFile(U32 dHandle)
 {
-long erc, exch, rqhndl, msg[2];
+U32 erc, exch, rqhndl, msg[2];
 	if (dHandle < 4)
 		return(ErcNotSupported);
 	GetTSSExch(&exch);
@@ -3826,9 +4059,9 @@ long erc, exch, rqhndl, msg[2];
 
 /*************************************/
 U32 far _CreateDir(char *pPath,
-				   long cbPath)
+				   U32 cbPath)
 {
-long erc, exch, rqhndl, msg[2];
+U32 erc, exch, rqhndl, msg[2];
 	GetTSSExch(&exch);
     erc = Request(fsysname, 14, exch, &rqhndl,
                    1,  							/* 1 Send ptrs */
@@ -3842,16 +4075,44 @@ long erc, exch, rqhndl, msg[2];
 
 /*************************************/
 U32 far _DeleteDir(char *pPath,
-				   long cbPath,
-				   long fAllFiles)
+				   U32 cbPath,
+				   char *fAllFiles)
 {
-long erc, exch, rqhndl, msg[2];
+U32 erc, exch, rqhndl, msg[2];
+char key;
+    if(*fAllFiles != '0') 
+       if(*fAllFiles != '1')
+         return(erc=232);
+     if(*fAllFiles == '1')
+     {
+        TTYOut(&line1,36,BLACK|BGWHITE);
+        TTYOut(&line2,27,WHITE|BGBLACK);
+        erc = ReadKbd(&keycode,1);  
+        key = keycode&0x0ff;
+        xprintf("%c\r\n",key);
+        if ((key == 'n') || (key == 'N'))
+                  return(ErcDeleteAbort);
+      }
+/* go for the delete */
 	GetTSSExch(&exch);
     erc = Request(fsysname, 15, exch, &rqhndl,
-                   1,  							/* 1 Send ptrs */
+                   1,  							/* 1 = Send ptrs */
                    pPath, cbPath,
-                   0, 0,
-                   fAllFiles, 0, 0);
+                   fAllFiles, 1, 0, 0, 0);
+	if (!erc) erc = WaitMsg(exch, msg);
+	if (erc) return(erc);
+	return(msg[1]);
+}
+/*************************************/
+U32 far _undelete(char *pPath, U32 cbPath)
+{
+U32 erc, exch, rqhndl, msg[2];
+/* go for the delete */
+	GetTSSExch(&exch);
+    erc = Request(fsysname, 17, exch, &rqhndl,
+                   1,  							/* 1 = Send ptrs */
+                   pPath, cbPath,
+                   0, 0, 0, 0, 0);
 	if (!erc) erc = WaitMsg(exch, msg);
 	if (erc) return(erc);
 	return(msg[1]);
@@ -3859,12 +4120,13 @@ long erc, exch, rqhndl, msg[2];
 
 /*************************************/
 U32 far _GetDirSector(char *pPathSpec,
-				     long cbPathSpec,
+				     U32 cbPathSpec,
 					 char *pEntRet,
-				     long cbEntRet,
-				     long SectNum)
+				     U32 cbEntRet,
+				     U32 SectNum)
 {
-long erc, exch, rqhndl, msg[2];
+U32 erc, exch, rqhndl, msg[2];
+/*    xprintf("SectNum in getdirsector() is %d\r\n",SectNum); */
 	GetTSSExch(&exch);
     erc = Request(fsysname, 16, exch, &rqhndl,
                    1,  							/* 1 Send ptrs */
@@ -3872,7 +4134,13 @@ long erc, exch, rqhndl, msg[2];
                    pEntRet, cbEntRet,
                    SectNum, 0, 0);
 	if (!erc) erc = WaitMsg(exch, msg);
-	if (erc) return(erc);
+
+	if (erc) 
+	{
+	  xprintf("Request failed in getdirsector() in fsys.c\r\n");
+      return(erc);
+	}
+/*	  xprintf("returned msg[1] in getdirsector() is %d\r\n",msg[1]); */
 	return(msg[1]);
 }
 

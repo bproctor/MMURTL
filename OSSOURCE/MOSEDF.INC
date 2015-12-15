@@ -1,3 +1,5 @@
+;   LOOK IN OS Constants
+
 ;   MMURTL Operating System Source Code
 ;   Copyright 1991,1992,1993,1994 Richard A. Burgess
 ;   ALL RIGHTS RESERVED   Version 1,0
@@ -135,6 +137,10 @@ ErcNoKeyAvail	EQU 700
 OSCodeSel		EQU 0008h	;OS code is 0 based on this selector
 DataSel			EQU 0010h	;All data is 0 based on this selector
 JobCodeSel		EQU 0018h	;All User Code is 0 based on this selector
+
+PAM			EQU 00080000h	;PAM Address
+PAMSIZE			EQU 00020000h	;PAM Size  128KB = 4GB
+PAMEND			EQU 000A0000h	;End of PAM ARRAY (PAM + PAMSIZE)
 
 NIL				EQU 0		;Duh...
 nTSS			EQU 66		;2 static and 64 dynamic

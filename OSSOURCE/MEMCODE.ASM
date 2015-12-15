@@ -16,10 +16,8 @@
 
 PUBLIC _nPagesFree		DD 0			;Number of free physical pages left
 PUBLIC _oMemMax			DD 000FFFFFh	;Default to 1 MB
-									;Page Allocation Map
-PUBLIC rgPAM	DB 2048 DUP (0)		;1 bit/4Kbytes - 2048 bytes = 64Mb
 PUBLIC sPAM		DD 32				;Deafult is 32 (1Mb)
-sPAMmax			EQU 2048			;Max is 2048 (64Mb)
+
 
 MemExch			DD 00000000h		;Semaphore exchange for Mem Mgmt
 pNextPT			DD 00000000h		;We alloc the "next" page table
@@ -107,6 +105,22 @@ PRSNTBIT EQU  00000000000000000000000000000001b
 ; is and store it in the GLOBAL nPagesFree.
 
 PUBLIC InitMemMgmt:
+
+                MOV EAX, PAM		; Set EAX to PAM Address
+
+ALoop:
+                MOV DWORD PTR [EAX],0h  ; Clear the PAM Array
+                INC EAX
+                INC EAX
+                INC EAX
+                INC EAX
+                CMP EAX, PAMEND 	; End of PAM ?
+                JAE ALoopEnd            ; yes
+                JMP ALoop               ; no
+
+ALoopEnd:
+
+
 		MOV _nPagesFree, 256	;1 Mb of pages = 256
 		MOV EAX,1FFFFCh         ;top of 2 megs (for DWORD)
 		XOR EBX,EBX				;
@@ -123,7 +137,7 @@ MEMLoop:
 		ADD EAX,100000h			;Next Meg
 		ADD _nPagesFree, 256	;Another megs worth of pages
 		ADD sPAM, 32			;Increase PAM by another meg
-		CMP EAX,3FFFFFCh        ;Are we above 64 megs
+		CMP EAX,4294967292        ;Are we above 4GB
 		JAE MemLoopEnd			;Yes!
 		XOR EBX,EBX				;Zero out for next meg test
 		JMP MemLoop
@@ -149,7 +163,7 @@ IMM001:
 		CALL MarkPage				;Marks page in PAM
 		ADD EDX, 4					;Next table entry
 		ADD EAX, 4096
-		CMP EAX, 30000h				;Reserve 192K for OS (for now)
+		CMP EAX, PAMEND			 ;Reserve 0KB to PAMEND for OS (00000000H - 000A0000H)
 		JAE SHORT IMM002
 		JMP SHORT IMM001			;Go for more
 
@@ -242,7 +256,7 @@ FindHiPage:
 		PUSH EAX
 		PUSH ECX
 		PUSH EDX
-		MOV ECX, OFFSET rgPAM		;Page Allocation Map
+		MOV ECX, PAM          		;Page Allocation Map
 		MOV EAX, sPAM				;Where we are in PAM
 		DEC EAX						;EAX+ECX will be offset into PAM
 FHP1:
@@ -295,7 +309,7 @@ FindLoPage:
 		PUSH EAX
 		PUSH ECX
 		PUSH EDX
-		MOV ECX, OFFSET rgPAM		;Page Allocation Map
+		MOV ECX, PAM		;Page Allocation Map
 		XOR EAX, EAX				;Start at first byte in PAM
 FLP1:
 		CMP BYTE PTR [ECX+EAX],0FFh		;All 8 pages used?
@@ -348,7 +362,7 @@ MarkPage:
 		PUSH EAX
 		PUSH ECX
 		PUSH EDX
-		MOV EAX, OFFSET rgPAM		;Page Allocation Map
+		MOV EAX, PAM		;Page Allocation Map
 		AND EBX, 0FFFFF000h			;Round down to page modulo 4096
 		MOV ECX, EBX
 		SHR ECX, 15					;ECX is now byte offset into PAM
@@ -375,7 +389,7 @@ UnMarkPage:
 		PUSH EAX
 		PUSH ECX
 		PUSH EDX
-		MOV EAX, OFFSET rgPAM		;Page Allocation Map
+		MOV EAX, PAM		;Page Allocation Map
 		AND EBX, 0FFFFF000h			;Round down to page modulo
 		MOV ECX, EBX
 		SHR ECX, 15					;ECX is now byte offset into PAM

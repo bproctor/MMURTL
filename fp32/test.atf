@@ -1,0 +1,21 @@
+.DATA
+
+.INCLUDE c:\cm32\lib\mpublics.asm
+
+.CODE
+
+.INCLUDE test.asm
+.INCLUDE c:\cm32\lib\fp32math.asm
+
+.INCLUDE c:\cm32\lib\ctype.asm
+.INCLUDE c:\cm32\lib\fileio.asm
+.INCLUDE c:\cm32\lib\fmtdio.asm
+.INCLUDE c:\cm32\lib\stdlib.asm
+.INCLUDE c:\cm32\lib\string.asm
+
+.START
+	JMP _stdentry
+.STACK 4000
+
+.END
+
