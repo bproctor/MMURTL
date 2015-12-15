@@ -6,5 +6,5 @@ I bought this book in 1996 while I was still in high school and it was one of th
 
 For anyone interested, here is the full source code.
 
-The book is available for free in PDF format, along with the code and updates.
+The book is available for free in PDF format, along with the code and updates (all of which have been merged into this repo).
 http://www.ipdatacorp.com/mmurtl/
